@@ -24,13 +24,14 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-        
+
       - name: Trigger Render Deploy
+        if: github.ref == 'refs/heads/prod'
         env:
-          RENDER_API_KEY: ${{ secrets.API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
         run: |
           curl -X POST https://api.render.com/deploy/${RENDER_SERVICE_ID} \
-            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Authorization: Bearer $API_KEY" \
             -H "Content-Type: application/json" \
             -d '{}'
