@@ -24,7 +24,7 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-
+        
       - name: Trigger Render Deploy
         env:
           RENDER_API_KEY: ${{ secrets.API_KEY }}
