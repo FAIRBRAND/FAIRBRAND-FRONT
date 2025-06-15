@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ["preprod", "prod"]
+  pull_request:
+    branches: ["preprod", "prod"]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Trigger Render Deploy
+        env:
+          RENDER_API_KEY: ${{ secrets.API_KEY }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          curl -X POST https://api.render.com/deploy/${RENDER_SERVICE_ID} \
+            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}'
