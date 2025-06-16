@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "@/components/Header";
 
 export default function RootLayout({
   children,
@@ -7,13 +6,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body>
-        <Header />
-        <main className="container mx-auto px-4 py-8">
-          {children}
-        </main>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
