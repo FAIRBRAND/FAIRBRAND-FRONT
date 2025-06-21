@@ -2,11 +2,22 @@
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}", 
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': 'var(--color-primary)',
+        'antique-gold': 'var(--color-antique-gold)',
+        'golden-beige': 'var(--color-golden-beige)',
+        'off-white': 'var(--color-off-white)',
+      },
+      fontFamily: {
+        'title': ['"Montserrat Alternates"', 'sans-serif'],
+        'body': ['"Open Sans"', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }

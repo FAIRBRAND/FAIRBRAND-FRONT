@@ -1,27 +1,16 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@config "../../tailwind.config.js";
+@import "tailwindcss";
 
 :root {
-    /* Primary Colors */
     --color-primary: #171c5e;
-    --color-primary-rgb: 23, 28, 94;
-
-    /* Antique Gold */
     --color-antique-gold: #b28c1c;
-    --color-antique-gold-rgb: 178, 140, 28;
-
-    /* Secondary Colors */
     --color-golden-beige: #e5d49e;
-    --color-golden-beige-rgb: 229, 212, 158;
-
-    /* Off White */
     --color-off-white: #f0f2f5;
-    --color-off-white-rgb: 240, 242, 245;
+}
 
-    /* Typography */
-    --font-title: 'Montserrat Alternates', sans-serif;
-    --font-body: 'Open Sans', sans-serif;
+body {
+    color: var(--color-primary);
+    background: var(--color-off-white);
 }
 
 /* Typography classes */
