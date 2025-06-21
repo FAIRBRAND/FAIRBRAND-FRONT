@@ -12,3 +12,93 @@ body {
     color: var(--color-primary);
     background: var(--color-off-white);
 }
+
+/* Typography classes */
+.font-title {
+    font-family: var(--font-title);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.title-bold {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+.title-regular {
+    font-family: var(--font-title);
+    font-weight: 400;
+}
+
+.body-bold {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.body-regular {
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.body-bold-italic {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.body-italic {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Utility classes for the brand colors */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-antique-gold {
+    background-color: var(--color-antique-gold);
+}
+
+.bg-golden-beige {
+    background-color: var(--color-golden-beige);
+}
+
+.bg-off-white {
+    background-color: var(--color-off-white);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-antique-gold {
+    color: var(--color-antique-gold);
+}
+
+.text-golden-beige {
+    color: var(--color-golden-beige);
+}
+
+.text-off-white {
+    color: var(--color-off-white);
+}
+
+.border-primary {
+    border-color: var(--color-primary);
+}
+
+.border-antique-gold {
+    border-color: var(--color-antique-gold);
+}
+
+.border-golden-beige {
+    border-color: var(--color-golden-beige);
+}
+
+.border-off-white {
+    border-color: var(--color-off-white);
+}
