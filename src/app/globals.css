@@ -1,1 +1,115 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* Primary Colors */
+    --color-primary: #171c5e;
+    --color-primary-rgb: 23, 28, 94;
+
+    /* Antique Gold */
+    --color-antique-gold: #b28c1c;
+    --color-antique-gold-rgb: 178, 140, 28;
+
+    /* Secondary Colors */
+    --color-golden-beige: #e5d49e;
+    --color-golden-beige-rgb: 229, 212, 158;
+
+    /* Off White */
+    --color-off-white: #f0f2f5;
+    --color-off-white-rgb: 240, 242, 245;
+
+    /* Typography */
+    --font-title: 'Montserrat Alternates', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Typography classes */
+.font-title {
+    font-family: var(--font-title);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.title-bold {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+.title-regular {
+    font-family: var(--font-title);
+    font-weight: 400;
+}
+
+.body-bold {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.body-regular {
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.body-bold-italic {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.body-italic {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Utility classes for the brand colors */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-antique-gold {
+    background-color: var(--color-antique-gold);
+}
+
+.bg-golden-beige {
+    background-color: var(--color-golden-beige);
+}
+
+.bg-off-white {
+    background-color: var(--color-off-white);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-antique-gold {
+    color: var(--color-antique-gold);
+}
+
+.text-golden-beige {
+    color: var(--color-golden-beige);
+}
+
+.text-off-white {
+    color: var(--color-off-white);
+}
+
+.border-primary {
+    border-color: var(--color-primary);
+}
+
+.border-antique-gold {
+    border-color: var(--color-antique-gold);
+}
+
+.border-golden-beige {
+    border-color: var(--color-golden-beige);
+}
+
+.border-off-white {
+    border-color: var(--color-off-white);
+}
