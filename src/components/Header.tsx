@@ -11,30 +11,30 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-white shadow-md">
+        <header className="bg-primary shadow-lg">
             <nav className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
-                        <span className="text-2xl font-bold text-gray-800">FAIRBRAND</span>
+                        <span className="text-2xl font-title font-bold text-off-white">FAIRBRAND</span>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex space-x-8">
-                        <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+                        <Link href="/" className="font-body text-off-white hover:text-golden-beige transition-colors duration-300">
                             Accueil
                         </Link>
-                        <Link href="/projets" className="text-gray-600 hover:text-gray-900 transition-colors">
+                        <Link href="/projets" className="font-body text-off-white hover:text-golden-beige transition-colors duration-300">
                             Projets
                         </Link>
-                        <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+                        <Link href="/contact" className="font-body text-off-white hover:text-golden-beige transition-colors duration-300">
                             Contact
                         </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
+                        className="md:hidden text-off-white hover:text-golden-beige focus:outline-none transition-colors duration-300"
                         onClick={toggleMenu}
                     >
                         <svg
@@ -57,24 +57,24 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
-                    <div className="md:hidden mt-4 space-y-4">
+                    <div className="md:hidden mt-4 space-y-4 border-t border-golden-beige/20 pt-4">
                         <Link
                             href="/"
-                            className="block text-gray-600 hover:text-gray-900 transition-colors"
+                            className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Accueil
                         </Link>
                         <Link
                             href="/projets"
-                            className="block text-gray-600 hover:text-gray-900 transition-colors"
+                            className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Projets
                         </Link>
                         <Link
                             href="/contact"
-                            className="block text-gray-600 hover:text-gray-900 transition-colors"
+                            className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Contact
