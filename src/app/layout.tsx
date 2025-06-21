@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserratAlternates.variable} ${openSans.variable} font-body`}>
+    <html lang="en" className={`${montserratAlternates.variable} ${openSans.variable} font-body`} suppressHydrationWarning={true}>
       <body className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
