@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#171c5e',
-        'antique-gold': '#b28c1c',
-        'golden-beige': '#e5d49e',
-        'off-white': '#f0f2f5',
+        'primary': 'var(--color-primary)',
+        'antique-gold': 'var(--color-antique-gold)',
+        'golden-beige': 'var(--color-golden-beige)',
+        'off-white': 'var(--color-off-white)',
       },
       fontFamily: {
         'title': ['"Montserrat Alternates"', 'sans-serif'],
