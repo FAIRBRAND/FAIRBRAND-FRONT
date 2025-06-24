@@ -1,102 +1,141 @@
 "use client";
 
+import { Search, Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import Link from "next/link";
-import { useI18n } from "../../../locales/client";
 
-const Header = () => {
+const navLinks = [
+  { href: "#", label: "About us" },
+  { href: "#", label: "Careers" },
+  { href: "#", label: "Privacy policy" },
+  { href: "#", label: "FAQs" },
+];
+
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const t = useI18n();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   return (
-    <header className="bg-primary shadow-lg">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-title font-bold text-off-white">
-              FAIRBRAND
-            </span>
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Desktop */}
+      <div className="hidden lg:block">
+        <div className="header-curve-white relative overflow-hidden">
+          <div className="width-full mx-5 px-8 py-8 text-center relative">
+            <div className="flex items-center align-center justify-between">
+              {/* Left */}
+              <div className="flex items-center space-x-20 relative z-20">
+                <div className="font-bold text-3xl text-gray-900">
+                  Fair-Brand
+                </div>
+                <nav className="flex items-center space-x-10">
+                  {navLinks.map(({ href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      className="text-gray-900 transition-colors duration-200 font-bold"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </nav>
+              </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <Link
-              href="/"
-              className="font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-            >
-              {t("new")}
-            </Link>
-            <Link
-              href="/projets"
-              className="font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-            >
-              Projets
-            </Link>
-            <Link
-              href="/contact"
-              className="font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-            >
-              Contact
-            </Link>
+              {/* Right */}
+              <div className="flex justify-end items-center space-x-4 header-content-right">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-black text-white hover:translate-0.5 w-12 h-12"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
+                <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full transition-all duration-200 font-medium">
+                  Contact us
+                </Button>
+                <div className="bg-white text-black md:flex items-center space-x-2 px-4 py-2 rounded-full shadow border border-gray-200">
+                  <Globe className="h-4 w-4" />
+                  <span className="font-medium">EN</span>
+                  <ChevronDown className="h-4 w-4" />
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-off-white hover:text-golden-beige focus:outline-none transition-colors duration-300"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+      {/* Mobile */}
+      <div className="lg:hidden bg-white shadow-sm border-b border-gray-100">
+        <div className="mx-3 sm:mx-5 px-4 sm:px-8 py-6 sm:py-8">
+          <div className="flex items-center justify-between">
+            <div className="font-bold text-2xl sm:text-3xl text-gray-900">
+              Fair-Brand
+            </div>
+
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-black text-white hover:bg-gray-800 w-10 h-10 sm:w-12 sm:h-12"
+              >
+                <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+              </Button>
+
+              <Button className="hidden sm:flex bg-black text-white hover:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-full transition-all duration-200 font-medium text-sm sm:text-base">
+                Contact us
+              </Button>
+
+              <div className="hidden md:flex items-center space-x-2 text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 sm:px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer">
+                <Globe className="h-4 w-4" />
+                <span className="font-medium">EN</span>
+                <ChevronDown className="h-4 w-4" />
+              </div>
+
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-black text-white hover:bg-gray-800 w-10 h-10"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <X className="h-4 w-4" />
+                ) : (
+                  <Menu className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 space-y-4 border-t border-golden-beige/20 pt-4">
-            <Link
-              href="/"
-              className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Accueil
-            </Link>
-            <Link
-              href="/projets"
-              className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projets
-            </Link>
-            <Link
-              href="/contact"
-              className="block font-body text-off-white hover:text-golden-beige transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
+          <div className="absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40">
+            <div className="px-4 py-6 space-y-4">
+              <nav className="space-y-4">
+                {navLinks.map(({ href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="block text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {label}
+                  </a>
+                ))}
+              </nav>
+
+              <div className="pt-4 border-t border-gray-200 space-y-4">
+                <Button className="w-full bg-black text-white hover:bg-gray-800 py-3 rounded-full transition-all duration-200 font-medium">
+                  Contact us
+                </Button>
+                <div className="flex items-center justify-center space-x-2 text-gray-700 bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded-full transition-colors duration-200 cursor-pointer">
+                  <Globe className="h-4 w-4" />
+                  <span className="font-medium">EN</span>
+                  <ChevronDown className="h-4 w-4" />
+                </div>
+              </div>
+            </div>
           </div>
         )}
-      </nav>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}
