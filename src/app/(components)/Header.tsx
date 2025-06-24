@@ -1,9 +1,10 @@
 "use client";
 
-import { Search, Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useI18n } from "../../../locales/client";
+import LocaleSelect from "./LocaleSelect";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,11 +55,7 @@ export default function Header() {
                 <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full transition-all duration-200 font-medium">
                   Contact us
                 </Button>
-                <div className="bg-white text-black md:flex items-center space-x-2 px-4 py-2 rounded-full shadow border border-gray-200">
-                  <Globe className="h-4 w-4" />
-                  <span className="font-medium">EN</span>
-                  <ChevronDown className="h-4 w-4" />
-                </div>
+                <LocaleSelect />
               </div>
             </div>
           </div>
@@ -86,11 +83,7 @@ export default function Header() {
                 Contact us
               </Button>
 
-              <div className="hidden md:flex items-center space-x-2 text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 sm:px-4 py-2 rounded-full transition-colors duration-200 cursor-pointer">
-                <Globe className="h-4 w-4" />
-                <span className="font-medium">EN</span>
-                <ChevronDown className="h-4 w-4" />
-              </div>
+              <LocaleSelect />
 
               <Button
                 variant="ghost"
@@ -129,11 +122,7 @@ export default function Header() {
                 <Button className="w-full bg-black text-white hover:bg-gray-800 py-3 rounded-full transition-all duration-200 font-medium">
                   Contact us
                 </Button>
-                <div className="flex items-center justify-center space-x-2 text-gray-700 bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded-full transition-colors duration-200 cursor-pointer">
-                  <Globe className="h-4 w-4" />
-                  <span className="font-medium">EN</span>
-                  <ChevronDown className="h-4 w-4" />
-                </div>
+                <LocaleSelect />
               </div>
             </div>
           </div>

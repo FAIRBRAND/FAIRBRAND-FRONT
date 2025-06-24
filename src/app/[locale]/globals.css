@@ -152,7 +152,6 @@ body {
   border-color: var(--color-off-white);
 }
 
-/* Courbe personnalisée pour le header */
 .header-curve-white {
   position: relative;
   background: rgba(255, 255, 255, 0.9);
@@ -161,6 +160,7 @@ body {
   border-radius: 0 0 0 0;
 }
 
+/*--Header--**/
 .header-curve-white::after {
   content: "";
   position: absolute;
@@ -177,12 +177,12 @@ body {
   z-index: 10;
 }
 
-/* Dégradé avec la couleur primaire pour le fond principal */
 .primary-gradient-bg {
   background: var(--color-primary) !important;
   margin-top: 7rem;
   border-radius: 5rem 0 0 0;
 }
+/*--Header--**/
 
 
 

@@ -31,16 +31,12 @@ export default async function RootLayout({
   const { locale } = await params;
 
   return (
-    <html>
-      <body>
-        <Providers locale={locale}>
-          <>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </>
-        </Providers>
-      </body>
-    </html>
+    <Providers locale={locale}>
+      <>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </>
+    </Providers>
   );
 }
