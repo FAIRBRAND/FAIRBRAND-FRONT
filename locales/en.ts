@@ -29,5 +29,45 @@ export default {
     skilled:'We have helped over 60 skilled professionals achieve their dreams',
     valuable:'Valuable Career Insights Provided',
     gain:'Gain insights from our comprehensive coaching experience'
+  },
+  careerSection:{
+    title:'Your Career Path',
+    title2:'Awaits You',
+    subtitle:'You deserve a fulfilling career that matches your talents',
+    description:'Are you feeling frustrated by limited job opportunities and underestimating your professional worth? At Fair Brand, we specialize in lifting skilled, bilingual professionals out of their comfort zones toward global career success. Our human-centered approach seamlessly combines work, education, and business into a powerful coaching program that addresses your unique challenges and empowers you to shine. With us, you will experience the satisfaction of securing a fulfilling international career and building the confidence you\'ve always deserved.',
+  },
+  opportunitiesSection:{
+    title:'Don\'t Let',
+    title2:'Opportunities',
+    title3:'Pass You By',
+    subtitle:'Are you frustrated being overlooked for roles you deserve?',
+    buttonText:'Explore Your Career Today',
+    painPoints:[
+      "Stuck in unfullling jobs without a promotion.",
+      "Frustrated by limited local job opportunities.",
+      "Feeling undervalued despite your qualifications.",
+      "Wasting time on generic career advice.",
+      "Missing out on diverse global roles.",
+      "Feeling lost about your career path.",
+      "Lacking confidence in job interviews.",
+      "Struggling to network effectively in your industry.",
+    ],
+  },
+  benefitsCard:{
+    benefits:[
+      "Lifetime access to tailored coaching resources",
+      "Customized solutions to fit your career goals",
+      "Impactful strategies for a balanced work-life",
+      "Human-centered approach for your unique journey"
+    ]
+  },
+  unlockPathSection:{
+    title1:"Unlock Your Path",
+    title2:"to Global Success",
+    description:"Transform your career and regain your confidence",
+    buttonText:"Explore Your Career Today"
   }
-} as const
+
+
+    
+}as const
