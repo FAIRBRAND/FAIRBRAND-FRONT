@@ -3,16 +3,19 @@
 import { Search, Globe, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
-const navLinks = [
-  { href: "#", label: "About us" },
-  { href: "#", label: "Careers" },
-  { href: "#", label: "Privacy policy" },
-  { href: "#", label: "FAQs" },
-];
+import { useI18n } from "../../../locales/client";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const t = useI18n();
+
+  const navLinks = [
+    { href: "#", label: t("header.about") },
+    { href: "#", label: t("header.careers") },
+    { href: "#", label: t("header.privacy") },
+    { href: "#", label: t("header.faqs") },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">

@@ -1,7 +1,9 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
+import { useI18n } from "../../../locales/client";
 
 const socialLinks = [
   { href: "#", icon: Linkedin, label: "LinkedIn" },
@@ -10,15 +12,15 @@ const socialLinks = [
   { href: "#", icon: Instagram, label: "Instagram" },
 ];
 
-const navLinks = [
-  { href: "#about", label: "About us" },
-  { href: "#coaching", label: "Coaching" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#privacy", label: "Privacy policy" },
-  { href: "#blog", label: "Blog" },
-];
-
 export default function Footer() {
+  const t = useI18n();
+  const navLinks = [
+    { href: "#about", label: t("footer.about") },
+    { href: "#coaching", label: t("footer.coaching") },
+    { href: "#testimonials", label: t("footer.testimonials") },
+    { href: "#privacy", label: t("footer.privacy") },
+    { href: "#blog", label: t("footer.blog") },
+  ];
   return (
     <footer className="bg-black text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -30,7 +32,7 @@ export default function Footer() {
         {/* CTA Section */}
         <div className="text-center mb-16">
           <h3 className="text-2xl md:text-5xl lg:text-4xl font-bold tracking-tight leading-tight mb-12">
-            GET STARTED TO YOUR BUSINESS
+            {t("footer.started")}
           </h3>
 
           {/* Email Form */}
@@ -45,7 +47,7 @@ export default function Footer() {
                 className="flex-1 border-0 text-gray-900 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-2 flex items-center gap-2">
-                Try now
+                {t("footer.try")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
