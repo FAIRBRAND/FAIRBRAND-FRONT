@@ -34,7 +34,8 @@ export default {
     title: 'Votre parcours professionnel',
     title2: 'vous attend',
     subtitle: 'Vous méritez une carrière épanouissante qui correspond à vos talents',
-    description: 'Vous vous sentez frustré par les opportunités d\'emploi limitées et sous-estimez votre valeur professionnelle ? Chez Fair Brand, nous sommes spécialisés dans l\'aide aux professionnels qualifiés et bilingues à sortir de leur zone de confort vers le succès professionnel mondial. Notre approche centrée sur l\'humain combine harmonieusement travail, éducation et affaires dans un programme de coaching puissant qui répond à vos défis uniques et vous permet de briller. Avec nous, vous vivrez la satisfaction de décrocher une carrière internationale épanouissante et de construire la confiance que vous avez toujours méritée.'
+    description: 'Vous vous sentez frustré par les opportunités d\'emploi limitées et sous-estimez votre valeur professionnelle ? Chez Fair Brand, nous sommes spécialisés dans l\'aide aux professionnels qualifiés et bilingues à sortir de leur zone de confort vers le succès professionnel mondial. Notre approche centrée sur l\'humain combine harmonieusement travail, éducation et affaires dans un programme de coaching puissant qui répond à vos défis uniques et vous permet de briller. Avec nous, vous vivrez la satisfaction de décrocher une carrière internationale épanouissante et de construire la confiance que vous avez toujours méritée.',
+    button: 'Explorez votre carrière aujourd\'hui',
   },
   opportunitiesSection:{
     title: 'Ne laissez pas',
@@ -65,6 +66,6 @@ export default {
     title1: "Débloquez votre chemin",
     title2: "vers le succès mondial",
     description: "Transformez votre carrière et retrouvez confiance en vous",
-    buttonText: "Explorez votre carrière dès aujourd'hui"
+    buttonText: "Explorez votre carrière aujourd'hui"
   }
 } as const

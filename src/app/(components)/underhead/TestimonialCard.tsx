@@ -7,7 +7,7 @@ export default function TestimonialCard() {
   const t = useI18n();
   return (
     <>
-      <div className="min-h-scree flex items-center justify-center gap-20">
+      <div className="min-h-screen flex items-center justify-center gap-20">
         <div className="w-full h-auto">
           {/* Top row with 60+ card and testimonial */}
           <div className="grid grid-cols-1 lg:grid-cols-2 mb-4 gap-4 ">
