@@ -12,7 +12,6 @@ export default function GlobalSuccessSection() {
           <div>
             <UnlockPathSection />
           </div>
-
           {/* Right */}
           <div>
             <BenefitsCard />
