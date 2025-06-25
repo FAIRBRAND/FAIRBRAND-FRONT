@@ -19,8 +19,11 @@ export default function OpportunitiesSection() {
   ];
 
   return (
-    <section className="py-16 px-4" id="careers">
-      <div className="container mx-auto max-w-7xl">
+    <section
+      className="space-y-8 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 py-10"
+      id="careers"
+    >
+      <div className="space-y-6">
         <div className="bg-primary rounded-3xl py-8 px-3 lg:p-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
@@ -39,7 +42,7 @@ export default function OpportunitiesSection() {
                 </p>
               </div>
 
-              <div className="gap-6">
+              <div className="text-center">
                 <Button className="mx-auto bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60 px-10 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
                   {t("opportunitiesSection.buttonText")}
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
@@ -51,9 +54,9 @@ export default function OpportunitiesSection() {
             <div className="text-white">
               <ul className="space-y-4 lg:space-y-6">
                 {painPoints.map((point, index) => (
-                  <li key={index} className="flex items-start gap-4 px-2">
+                  <li key={index} className="flex items-start gap-4 px-8">
                     <div className="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-3"></div>
-                    <p className="text-base lg:text-lg leading-relaxed opacity-90">
+                    <p className="lg:text-lg leading-relaxed opacity-90">
                       {point}
                     </p>
                   </li>

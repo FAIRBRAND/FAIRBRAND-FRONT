@@ -8,7 +8,7 @@ export default function UnlockPathSection() {
   const t = useI18n();
   return (
     <div className="space-y-8">
-      <div className="space-y-6">
+      <div className="space-y-6 text-center">
         <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-tight">
           {t("unlockPathSection.title1")}
           <br />
@@ -20,7 +20,7 @@ export default function UnlockPathSection() {
         </p>
       </div>
 
-      <div className="pt-4">
+      <div className="pt-4 text-center">
         <Button className="bg-primary backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
           {t("unlockPathSection.buttonText")}
           <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
