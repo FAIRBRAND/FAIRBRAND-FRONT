@@ -12,8 +12,8 @@ export default function Header() {
   const t = useI18n();
 
   const navLinks = [
-    { href: "#", label: t("header.about") },
-    { href: "#", label: t("header.careers") },
+    { href: "#about", label: t("header.about") },
+    { href: "#careers", label: t("header.careers") },
     { href: "#", label: t("header.privacy") },
     { href: "#", label: t("header.faqs") },
   ];
@@ -83,7 +83,9 @@ export default function Header() {
                 Contact us
               </Button>
 
-              <LocaleSelect />
+              <div className="hidden sm:block">
+                <LocaleSelect />
+              </div>
 
               <Button
                 variant="ghost"

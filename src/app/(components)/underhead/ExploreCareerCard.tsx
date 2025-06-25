@@ -9,12 +9,12 @@ export default function ExploreCareerCard() {
 
   return (
     <>
-      <div className="flex-4 space-y-12">
-        <div className="space-y-8 ">
-          <h1 className="text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+      <div className="flex-4 space-y-12" id="about">
+        <div className="space-y-8">
+          <h3 className="text-4xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             {t("exploreCareerCard.explore")} <br />
             <span className="text-white">{t("exploreCareerCard.career")}</span>
-          </h1>
+          </h3>
 
           <p className="text-2xl text-white font-bold leading-relaxed">
             {t("exploreCareerCard.ready")}
