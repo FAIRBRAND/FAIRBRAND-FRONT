@@ -1,12 +1,11 @@
-import "./globals.css";
-
-export default function RootLayout({
+// app/layout.tsx
+export default function RootBaseLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html>
       <body>{children}</body>
     </html>
   );
