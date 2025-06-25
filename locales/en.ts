@@ -35,6 +35,7 @@ export default {
     title2:'Awaits You',
     subtitle:'You deserve a fulfilling career that matches your talents',
     description:'Are you feeling frustrated by limited job opportunities and underestimating your professional worth? At Fair Brand, we specialize in lifting skilled, bilingual professionals out of their comfort zones toward global career success. Our human-centered approach seamlessly combines work, education, and business into a powerful coaching program that addresses your unique challenges and empowers you to shine. With us, you will experience the satisfaction of securing a fulfilling international career and building the confidence you\'ve always deserved.',
+    button:'Explore Your Career Today',
   },
   opportunitiesSection:{
     title:'Don\'t Let',
