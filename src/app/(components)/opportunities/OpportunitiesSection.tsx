@@ -19,12 +19,12 @@ export default function OpportunitiesSection() {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4" id="careers">
       <div className="container mx-auto max-w-7xl">
-        <div className="bg-primary rounded-3xl p-8 lg:p-16">
+        <div className="bg-primary rounded-3xl py-8 px-3 lg:p-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <div className="text-white space-y-8">
+            <div className="text-white space-y-8 text-center">
               <div className="space-y-6">
                 <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                   {t("opportunitiesSection.title")}
@@ -39,14 +39,10 @@ export default function OpportunitiesSection() {
                 </p>
               </div>
 
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group"
-                  size="lg"
-                >
+              <div className="gap-6">
+                <Button className="mx-auto bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60 px-10 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
                   {t("opportunitiesSection.buttonText")}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
                 </Button>
               </div>
             </div>
@@ -55,7 +51,7 @@ export default function OpportunitiesSection() {
             <div className="text-white">
               <ul className="space-y-4 lg:space-y-6">
                 {painPoints.map((point, index) => (
-                  <li key={index} className="flex items-start gap-4">
+                  <li key={index} className="flex items-start gap-4 px-2">
                     <div className="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-3"></div>
                     <p className="text-base lg:text-lg leading-relaxed opacity-90">
                       {point}
