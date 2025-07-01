@@ -37,10 +37,10 @@ const StepsSection: React.FC<StepsSectionProps> = ({
         <div className="w-full lg:w-1/2 flex flex-col justify-center gap-8 relative z-10 items-center">
             {/* Bulle principale titre/slogan/bouton */}
             <div className="bg-[#3C3C8C] text-white rounded-[2.5rem] px-4 py-8 sm:px-8 sm:py-10 shadow-2xl flex flex-col items-center w-full max-w-2xl mb-6">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 text-center break-words w-full">
                     {title}
                 </h2>
-                <p className="text-base sm:text-lg md:text-2xl font-medium mb-6 text-white/90 text-center">
+                <p className="text-base sm:text-lg md:text-2xl font-medium mb-6 text-white/90 text-center break-words w-full">
                     {subtitle}
                 </p>
                 <div className="w-full flex justify-center">
