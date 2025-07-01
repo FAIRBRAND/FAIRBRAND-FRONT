@@ -28,31 +28,29 @@ const StepsSection: React.FC<StepsSectionProps> = ({
     imageAlt,
     steps,
 }) => (
-    <section className="w-full flex flex-col lg:flex-row items-stretch justify-center max-w-7xl mx-auto py-8 px-2 md:px-8 gap-8">
-        {/* Image à gauche */}
-        <div className="flex-1 flex items-end min-h-[320px] md:min-h-[480px]">
-            <ImageWithRoundedCorner src={imageSrc} alt={imageAlt} className="rounded-3xl w-full h-[220px] md:h-[480px] object-cover shadow-2xl" />
+    <section className="w-full flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto py-8 px-2 md:px-8 gap-8">
+        {/* Image au-dessus sur mobile, à gauche sur desktop */}
+        <div className="w-full lg:w-1/2 flex justify-center items-end min-h-[220px] lg:min-h-[480px] mb-6 lg:mb-0">
+            <ImageWithRoundedCorner src={imageSrc} alt={imageAlt} className="rounded-3xl w-full max-w-md h-[220px] sm:h-[320px] lg:h-[480px] object-cover shadow-2xl" />
         </div>
-        {/* Contenu à droite */}
-        <div className="flex-1 flex flex-col justify-center gap-8 relative z-10">
+        {/* Contenu à droite ou dessous */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center gap-8 relative z-10 items-center">
             {/* Bulle principale titre/slogan/bouton */}
-            <div className="bg-[#3C3C8C] text-white rounded-[2.5rem] px-4 py-8 md:px-8 md:py-10 shadow-2xl flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12 mb-6 text-center md:text-left">
-                <div className="flex-1">
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-2 md:mb-0">
-                        {title}
-                    </h2>
-                </div>
-                <div className="flex flex-col items-center md:items-end gap-4 flex-1">
-                    <p className="text-base sm:text-lg md:text-2xl font-medium mb-2 md:mb-0 text-white/90 md:text-right">
-                        {subtitle}
-                    </p>
+            <div className="bg-[#3C3C8C] text-white rounded-[2.5rem] px-4 py-8 sm:px-8 sm:py-10 shadow-2xl flex flex-col items-center w-full max-w-2xl mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 text-center">
+                    {title}
+                </h2>
+                <p className="text-base sm:text-lg md:text-2xl font-medium mb-6 text-white/90 text-center">
+                    {subtitle}
+                </p>
+                <div className="w-full flex justify-center">
                     <ActionButton label={buttonLabel} onClick={onButtonClick} />
                 </div>
             </div>
-            {/* Steps en bulles séparées */}
-            <div className="flex flex-col gap-6">
+            {/* Steps en bulles séparées, centrées */}
+            <div className="flex flex-col gap-6 w-full max-w-2xl items-center">
                 {steps.map((step) => (
-                    <div key={step.number} className="bg-[#3C3C8C] text-white rounded-[2.5rem] px-4 py-6 md:px-8 shadow-xl flex items-center justify-center text-center">
+                    <div key={step.number} className="bg-[#3C3C8C] text-white rounded-[2.5rem] px-4 py-6 sm:px-8 shadow-xl flex items-center w-full">
                         <StepCard
                             number={step.number}
                             title={step.title}
