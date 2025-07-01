@@ -67,8 +67,24 @@ export default {
     title2:"to Global Success",
     description:"Transform your career and regain your confidence",
     buttonText:"Explore Your Career Today"
+  },
+  stepsSection: {
+    title: "3 Simple Steps to Your Dream Career",
+    subtitle: "Take control of your future with ease",
+    button: "Explore Your Career Today",
+    steps: [
+      {
+        title: "Assess Your Potential",
+        description: "Join our free strategic consultation to discuss your aspirations",
+      },
+      {
+        title: "Apply for Tailored Coaching",
+        description: "Enroll in a coaching program designed just for you",
+      },
+      {
+        title: "Celebrate Your Success",
+        description: "Enjoy the new career opportunities and confidence you gain",
+      },
+    ],
   }
-
-
-    
 }as const
