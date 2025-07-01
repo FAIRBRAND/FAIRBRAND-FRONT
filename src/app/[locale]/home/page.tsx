@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main>
       <HomeLayout />
-      <StepsSection />
       <OpportunitiesSection />
       <GlobalSuccessSection />
       <CareerSection />
+      <StepsSection />
     </main>
   );
 }
