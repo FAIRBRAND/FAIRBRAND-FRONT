@@ -8,7 +8,7 @@ interface StepCardProps {
 
 const StepCard: React.FC<StepCardProps> = ({ number, title, description }) => (
     <div className="bg-primary rounded-2xl flex items-center p-6 mb-4">
-        <div className="bg-black text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+        <div className="flex-shrink-0 bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md sm:w-14 sm:h-14">
             {number}
         </div>
         <div>
