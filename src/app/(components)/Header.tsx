@@ -31,7 +31,7 @@ export default function Header() {
             <div className="flex items-center align-center justify-between">
               {/* Left */}
               <div className="flex items-center space-x-20 relative z-20">
-                <div className="font-bold text-3xl text-gray-900">
+                <div className="font-bold text-3xl text-gray-900 hover-scale smooth-transition cursor-pointer">
                   Fair-Brand
                 </div>
                 <nav className="flex items-center space-x-10">
@@ -39,7 +39,7 @@ export default function Header() {
                     <a
                       key={label}
                       href={href}
-                      className="text-gray-900 transition-colors duration-200 font-bold"
+                      className="text-gray-900 smooth-transition font-bold hover:text-[#3C3C8C] hover-lift"
                     >
                       {label}
                     </a>
@@ -52,19 +52,19 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-black text-white hover:translate-0.5 w-12 h-12"
+                  className="rounded-full bg-black text-white hover:bg-gray-800 w-12 h-12 smooth-transition hover-lift"
                 >
                   <Search className="h-5 w-5" />
                 </Button>
 
                 {/* Auth Button */}
                 <Link href={`/${locale}/auth`}>
-                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full transition-all duration-200 font-medium">
+                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift font-medium">
                     {t("header.authenticate")}
                   </Button>
                 </Link>
 
-                <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full transition-all duration-200 font-medium">
+                <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full smooth-transition hover-lift font-medium">
                   {t("header.contactUs")}
                 </Button>
                 <LocaleSelect />

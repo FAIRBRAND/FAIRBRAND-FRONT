@@ -42,7 +42,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
             console.log("Sign in data:", data);
 
             // Simuler un délai d'authentification
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 1500));
 
             // TODO: Rediriger vers le dashboard après connexion réussie
         } catch (error) {
@@ -55,7 +55,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
 
     return (
         <div className="w-full max-w-md mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 animate-fade-in">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     {t("auth.signin.title")}
                 </h2>
@@ -65,7 +65,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 animate-slide-in-right">
                     <FormField
                         control={form.control}
                         name="email"
@@ -81,7 +81,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                             {...field}
                                             type="email"
                                             placeholder={t("auth.signin.emailPlaceholder")}
-                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
                                         />
                                     </div>
                                 </FormControl>
@@ -105,12 +105,12 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                             {...field}
                                             type={showPassword ? "text" : "password"}
                                             placeholder={t("auth.signin.passwordPlaceholder")}
-                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
                                         />
                                         <button
                                             type="button"
                                             onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 smooth-transition-fast"
                                         >
                                             {showPassword ? (
                                                 <EyeOff className="h-5 w-5" />
@@ -138,24 +138,31 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                     <Button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+                        className="w-full bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white font-semibold py-3 px-4 rounded-lg smooth-transition hover-lift"
                     >
-                        {isLoading ? t("auth.signin.signInLoading") : t("auth.signin.signInButton")}
+                        {isLoading ? (
+                            <div className="flex items-center justify-center">
+                                <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                                {t("auth.signin.signInLoading")}
+                            </div>
+                        ) : (
+                            t("auth.signin.signInButton")
+                        )}
                     </Button>
                 </form>
             </Form>
 
             <div className="mt-6 text-center">
-                        <p className="text-gray-600">
-          {t("auth.signin.noAccount")}{" "}
-          <button
-            type="button"
-            onClick={onToggleMode}
-            className="text-[#3C3C8C] hover:text-[#2A2A6B] font-semibold"
-          >
-            {t("auth.signin.createAccount")}
-          </button>
-        </p>
+                <p className="text-gray-600">
+                    {t("auth.signin.noAccount")}{" "}
+                    <button
+                        type="button"
+                        onClick={onToggleMode}
+                        className="text-[#3C3C8C] hover:text-[#2A2A6B] font-semibold"
+                    >
+                        {t("auth.signin.createAccount")}
+                    </button>
+                </p>
             </div>
         </div>
     );
