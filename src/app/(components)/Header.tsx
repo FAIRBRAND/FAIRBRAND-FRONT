@@ -1,8 +1,8 @@
 "use client";
 
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "../../../locales/client";
 import LocaleSelect from "./LocaleSelect";
 import Link from "next/link";
@@ -10,23 +10,56 @@ import { useParams } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const params = useParams();
   const locale = params.locale as string;
 
   const t = useI18n();
 
+  // Gestion du scroll pour l'effet de transparence
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Gestion de la section active
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'careers', 'opportunities', 'success', 'steps'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navLinks = [
-    { href: "#about", label: t("header.about") },
-    { href: "#careers", label: t("header.careers") },
-    { href: "#", label: t("header.privacy") },
-    { href: "#", label: t("header.faqs") },
+    { href: "#about", label: t("header.about"), id: "about" },
+    { href: "#opportunities", label: t("header.careers"), id: "opportunities" },
+    { href: "#success", label: t("header.privacy"), id: "success" },
+    { href: "#steps", label: t("header.faqs"), id: "steps" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 smooth-transition ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : ''}`}>
       {/* Desktop */}
       <div className="hidden lg:block">
-        <div className="header-curve-white relative overflow-hidden">
+        <div className={`header-curve-white relative overflow-hidden smooth-transition ${isScrolled ? 'bg-white/95' : ''}`}>
           <div className="width-full mx-5 px-8 py-8 text-center relative">
             <div className="flex items-center align-center justify-between">
               {/* Left */}
@@ -35,13 +68,17 @@ export default function Header() {
                   Fair-Brand
                 </div>
                 <nav className="flex items-center space-x-10">
-                  {navLinks.map(({ href, label }) => (
+                  {navLinks.map(({ href, label, id }) => (
                     <a
                       key={label}
                       href={href}
-                      className="text-gray-900 smooth-transition font-bold hover:text-[#3C3C8C] hover-lift"
+                      className={`text-gray-900 smooth-transition font-bold hover:text-[#3C3C8C] hover-lift relative ${activeSection === id ? 'text-[#3C3C8C]' : ''
+                        }`}
                     >
                       {label}
+                      {activeSection === id && (
+                        <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#3C3C8C] animate-scale-in"></div>
+                      )}
                     </a>
                   ))}
                 </nav>

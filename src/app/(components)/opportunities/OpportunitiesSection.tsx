@@ -3,9 +3,29 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useI18n } from "../../../../locales/client";
+import { useEffect, useState } from "react";
 
 export default function OpportunitiesSection() {
   const t = useI18n();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('opportunities');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const painPoints = [
     t("opportunitiesSection.painPoints.0"),
@@ -21,13 +41,13 @@ export default function OpportunitiesSection() {
   return (
     <section
       className="space-y-4 sm:space-y-6 md:space-y-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-6 sm:py-8 md:py-10"
-      id="careers"
+      id="opportunities"
     >
       <div>
         <div className="bg-primary rounded-2xl sm:rounded-3xl py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center w-full max-w-7xl">
             {/* Left Content */}
-            <div className="text-white space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className={`text-white space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left smooth-transition-slow ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                   {t("opportunitiesSection.title")}
@@ -51,12 +71,13 @@ export default function OpportunitiesSection() {
             </div>
 
             {/* Right Content */}
-            <div className="text-white">
+            <div className={`text-white smooth-transition-slow ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.2s' }}>
               <ul className="space-y-2 sm:space-y-3 md:space-y-4">
                 {painPoints.map((point, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 sm:gap-4 px-2 sm:px-3 md:px-4"
+                    className={`flex items-start gap-3 sm:gap-4 px-2 sm:px-3 md:px-4 smooth-transition ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+                    style={{ transitionDelay: `${0.3 + index * 0.1}s` }}
                   >
                     <div className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full mt-2 sm:mt-2.5 md:mt-3"></div>
                     <p className="text-sm sm:text-base md:text-lg leading-relaxed opacity-90 break-words">

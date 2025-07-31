@@ -1,5 +1,6 @@
 "use client";
 import { useI18n } from "../../../../locales/client";
+import { useEffect, useState } from "react";
 import StepCard from './StepCard';
 import ActionButton from './ActionButton';
 import ImageWithRoundedCorner from './ImageWithRoundedCorner';
@@ -29,7 +30,7 @@ const StepsSectionBase: React.FC<StepsSectionProps> = ({
     imageAlt,
     steps,
 }) => (
-    <section className="w-full flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto py-8 px-2 md:px-8 gap-8">
+    <section className="w-full flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto py-8 px-2 md:px-8 gap-8" id="steps">
         {/* Image au-dessus sur mobile, à gauche sur desktop */}
         <div className="w-full lg:w-1/2 flex justify-center items-end min-h-[220px] lg:min-h-[480px] mb-6 lg:mb-0">
             <ImageWithRoundedCorner src={imageSrc} alt={imageAlt} className="rounded-3xl w-full max-w-md h-[220px] sm:h-[320px] lg:h-[480px] object-cover shadow-2xl" />
@@ -66,6 +67,26 @@ const StepsSectionBase: React.FC<StepsSectionProps> = ({
 
 export default function StepsSection() {
     const t = useI18n();
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        const element = document.getElementById('steps');
+        if (element) {
+            observer.observe(element);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     const steps = [
         {
             number: "01",
@@ -83,14 +104,17 @@ export default function StepsSection() {
             description: t("stepsSection.steps.2.description"),
         },
     ];
+
     return (
-        <StepsSectionBase
-            title={t("stepsSection.title")}
-            subtitle={t("stepsSection.subtitle")}
-            buttonLabel={t("stepsSection.button")}
-            imageSrc="/homme.jpg"
-            imageAlt={t("stepsSection.title")}
-            steps={steps}
-        />
+        <div className={`smooth-transition-slow ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <StepsSectionBase
+                title={t("stepsSection.title")}
+                subtitle={t("stepsSection.subtitle")}
+                buttonLabel={t("stepsSection.button")}
+                imageSrc="/homme.jpg"
+                imageAlt={t("stepsSection.title")}
+                steps={steps}
+            />
+        </div>
     );
 } 
