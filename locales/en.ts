@@ -1,49 +1,51 @@
 // locales/en.ts
 export default {
-  header:{
-    about:'About Us',
-    careers:'Careers',
-    privacy:'Privacy Policy',
-    faqs:'FAQs',
+  header: {
+    about: 'About Us',
+    careers: 'Careers',
+    privacy: 'Privacy Policy',
+    faqs: 'FAQs',
+    authenticate: 'Authenticate',
+    contactUs: 'Contact Us',
   },
-  footer:{
-    started:'GET STARTED TO YOUR BUSINESS',
-    try:'Try now',
-    about:'About Us',
-    coaching:'Coaching',
-    testimonials:'Testimonials',
-    privacy:'Privacy Policy',
-    blog:'Blog',
+  footer: {
+    started: 'GET STARTED TO YOUR BUSINESS',
+    try: 'Try now',
+    about: 'About Us',
+    coaching: 'Coaching',
+    testimonials: 'Testimonials',
+    privacy: 'Privacy Policy',
+    blog: 'Blog',
   },
-  exploreCareerCard:{
-    explore:'Achieve Your Global',
-    career:'Career Aspirations',
-    ready:'Are you ready to conquer your dream career?',
-    exploreCareer:'Explore Your Career Today',
+  exploreCareerCard: {
+    explore: 'Achieve Your Global',
+    career: 'Career Aspirations',
+    ready: 'Are you ready to conquer your dream career?',
+    exploreCareer: 'Explore Your Career Today',
   },
-  testimonialCard:{
-    professional:'Professionals',
-    empowered:'Empowered',
-    name:'Marie L., Successful Candidate',
-    help:'Fair Brand helped me land my dream job abroad after feeling stuck for years',
-    skilled:'We have helped over 60 skilled professionals achieve their dreams',
-    valuable:'Valuable Career Insights Provided',
-    gain:'Gain insights from our comprehensive coaching experience'
+  testimonialCard: {
+    professional: 'Professionals',
+    empowered: 'Empowered',
+    name: 'Marie L., Successful Candidate',
+    help: 'Fair Brand helped me land my dream job abroad after feeling stuck for years',
+    skilled: 'We have helped over 60 skilled professionals achieve their dreams',
+    valuable: 'Valuable Career Insights Provided',
+    gain: 'Gain insights from our comprehensive coaching experience'
   },
-  careerSection:{
-    title:'Your Career Path',
-    title2:'Awaits You',
-    subtitle:'You deserve a fulfilling career that matches your talents',
-    description:'Are you feeling frustrated by limited job opportunities and underestimating your professional worth? At Fair Brand, we specialize in lifting skilled, bilingual professionals out of their comfort zones toward global career success. Our human-centered approach seamlessly combines work, education, and business into a powerful coaching program that addresses your unique challenges and empowers you to shine. With us, you will experience the satisfaction of securing a fulfilling international career and building the confidence you\'ve always deserved.',
-    button:'Explore Your Career Today',
+  careerSection: {
+    title: 'Your Career Path',
+    title2: 'Awaits You',
+    subtitle: 'You deserve a fulfilling career that matches your talents',
+    description: 'Are you feeling frustrated by limited job opportunities and underestimating your professional worth? At Fair Brand, we specialize in lifting skilled, bilingual professionals out of their comfort zones toward global career success. Our human-centered approach seamlessly combines work, education, and business into a powerful coaching program that addresses your unique challenges and empowers you to shine. With us, you will experience the satisfaction of securing a fulfilling international career and building the confidence you\'ve always deserved.',
+    button: 'Explore Your Career Today',
   },
-  opportunitiesSection:{
-    title:'Don\'t Let',
-    title2:'Opportunities',
-    title3:'Pass You By',
-    subtitle:'Are you frustrated being overlooked for roles you deserve?',
-    buttonText:'Explore Your Career Today',
-    painPoints:[
+  opportunitiesSection: {
+    title: 'Don\'t Let',
+    title2: 'Opportunities',
+    title3: 'Pass You By',
+    subtitle: 'Are you frustrated being overlooked for roles you deserve?',
+    buttonText: 'Explore Your Career Today',
+    painPoints: [
       "Stuck in unfullling jobs without a promotion.",
       "Frustrated by limited local job opportunities.",
       "Feeling undervalued despite your qualifications.",
@@ -54,19 +56,19 @@ export default {
       "Struggling to network effectively in your industry.",
     ],
   },
-  benefitsCard:{
-    benefits:[
+  benefitsCard: {
+    benefits: [
       "Lifetime access to tailored coaching resources",
       "Customized solutions to fit your career goals",
       "Impactful strategies for a balanced work-life",
       "Human-centered approach for your unique journey"
     ]
   },
-  unlockPathSection:{
-    title1:"Unlock Your Path",
-    title2:"to Global Success",
-    description:"Transform your career and regain your confidence",
-    buttonText:"Explore Your Career Today"
+  unlockPathSection: {
+    title1: "Unlock Your Path",
+    title2: "to Global Success",
+    description: "Transform your career and regain your confidence",
+    buttonText: "Explore Your Career Today"
   },
   stepsSection: {
     title: "3 Simple Steps to Your Dream Career",
@@ -86,5 +88,65 @@ export default {
         description: "Enjoy the new career opportunities and confidence you gain",
       },
     ],
-  }
-}as const
+  },
+  auth: {
+    signin: {
+      title: "Sign In",
+      subtitle: "Sign in to your FAIRBRAND account",
+      email: "Email",
+      password: "Password",
+      forgotPassword: "Forgot password?",
+      signInButton: "Sign In",
+      signInLoading: "Signing in...",
+      noAccount: "Don't have an account?",
+      createAccount: "Create an account",
+      emailPlaceholder: "your@email.com",
+      passwordPlaceholder: "Your password",
+    },
+    signup: {
+      title: "Create Account",
+      subtitle: "Join FAIRBRAND and start your journey",
+      firstName: "First Name",
+      lastName: "Last Name",
+      email: "Email",
+      password: "Password",
+      confirmPassword: "Confirm Password",
+      signUpButton: "Create Account",
+      signUpLoading: "Creating account...",
+      hasAccount: "Already have an account?",
+      signIn: "Sign In",
+      firstNamePlaceholder: "First Name",
+      lastNamePlaceholder: "Last Name",
+      emailPlaceholder: "your@email.com",
+      passwordPlaceholder: "Your password",
+      confirmPasswordPlaceholder: "Confirm your password",
+    },
+    forgotPassword: {
+      title: "Forgot Password",
+      subtitle: "Enter your email to receive a reset link",
+      email: "Email",
+      sendButton: "Send Reset Link",
+      sendLoading: "Sending...",
+      backToSignIn: "Back to Sign In",
+      emailSent: {
+        title: "Email Sent!",
+        subtitle: "We've sent a reset link to your email address.",
+        description: "Check your inbox and follow the instructions to reset your password.",
+        backButton: "Back to Sign In",
+      },
+    },
+    validation: {
+      emailRequired: "Email is required",
+      emailInvalid: "Invalid email format",
+      passwordRequired: "Password is required",
+      passwordMinLength: "Password must contain at least {min} characters",
+      passwordComplexity: "Password must contain at least one lowercase, one uppercase, and one number",
+      firstNameRequired: "First name is required",
+      firstNameMinLength: "First name must contain at least 2 characters",
+      lastNameRequired: "Last name is required",
+      lastNameMinLength: "Last name must contain at least 2 characters",
+      confirmPasswordRequired: "Password confirmation is required",
+      passwordsMismatch: "Passwords do not match",
+    },
+  },
+} as const

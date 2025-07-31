@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useI18n } from "../../../locales/client";
 import LocaleSelect from "./LocaleSelect";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const params = useParams();
+  const locale = params.locale as string;
 
   const t = useI18n();
 
@@ -52,8 +56,16 @@ export default function Header() {
                 >
                   <Search className="h-5 w-5" />
                 </Button>
+
+                {/* Auth Button */}
+                <Link href={`/${locale}/auth`}>
+                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full transition-all duration-200 font-medium">
+                    {t("header.authenticate")}
+                  </Button>
+                </Link>
+
                 <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full transition-all duration-200 font-medium">
-                  Contact us
+                  {t("header.contactUs")}
                 </Button>
                 <LocaleSelect />
               </div>
@@ -79,8 +91,15 @@ export default function Header() {
                 <Search className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
 
+              {/* Auth Button - Mobile */}
+              <Link href={`/${locale}/auth`}>
+                <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm">
+                  {t("header.authenticate")}
+                </Button>
+              </Link>
+
               <Button className="hidden sm:flex bg-black text-white hover:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-full transition-all duration-200 font-medium text-sm sm:text-base">
-                Contact us
+                {t("header.contactUs")}
               </Button>
 
               <div className="hidden sm:block">
@@ -121,8 +140,15 @@ export default function Header() {
               </nav>
 
               <div className="pt-4 border-t border-gray-200 space-y-4">
+                {/* Auth Button - Mobile Menu */}
+                <Link href={`/${locale}/auth`}>
+                  <Button className="w-full bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] py-3 rounded-full transition-all duration-200 font-medium">
+                    {t("header.authenticate")}
+                  </Button>
+                </Link>
+
                 <Button className="w-full bg-black text-white hover:bg-gray-800 py-3 rounded-full transition-all duration-200 font-medium">
-                  Contact us
+                  {t("header.contactUs")}
                 </Button>
                 <LocaleSelect />
               </div>

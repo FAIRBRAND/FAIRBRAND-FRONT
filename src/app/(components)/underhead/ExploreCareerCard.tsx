@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, User } from "lucide-react";
 import React from "react";
 import SocialIcons from "./SocialIcons";
 import { useI18n } from "../../../../locales/client";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function ExploreCareerCard() {
   const t = useI18n();
+  const params = useParams();
+  const locale = params.locale as string;
 
   return (
     <>
@@ -21,10 +25,19 @@ export default function ExploreCareerCard() {
           </p>
         </div>
 
-        <Button className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
-          {t("exploreCareerCard.exploreCareer")}
-          <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
+          <Button className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
+            {t("exploreCareerCard.exploreCareer")}
+            <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+          </Button>
+
+          <Link href={`/${locale}/auth`}>
+            <Button className="bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white border-2 border-[#3C3C8C] px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 group shadow-xl">
+              <User className="h-6 w-6 mr-2" />
+              {t("header.authenticate")}
+            </Button>
+          </Link>
+        </div>
         <SocialIcons />
       </div>
     </>
