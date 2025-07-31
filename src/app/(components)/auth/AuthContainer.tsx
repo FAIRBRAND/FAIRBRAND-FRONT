@@ -61,17 +61,17 @@ export default function AuthContainer() {
             <div className="w-full max-w-md">
                 {/* Logo et branding */}
                 <div className="text-center mb-8 animate-scale-in">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl hover-scale smooth-transition">
-                        <span className="text-2xl font-bold text-[#3C3C8C]">F</span>
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl hover-scale smooth-transition hover-glow cursor-pointer group">
+                        <span className="text-2xl font-bold text-[#3C3C8C] group-hover:scale-110 smooth-transition">F</span>
                     </div>
-                    <h1 className="text-4xl font-bold text-white mb-2">FAIRBRAND</h1>
-                    <p className="text-white/80">
+                    <h1 className="text-4xl font-bold text-white mb-2 hover-bounce smooth-transition cursor-default">FAIRBRAND</h1>
+                    <p className="text-white/80 text-lg">
                         Votre parcours vers le succès professionnel
                     </p>
                 </div>
 
                 {/* Container du formulaire */}
-                <div className={`bg-white rounded-2xl shadow-2xl p-8 smooth-transition ${isTransitioning ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}>
+                <div className={`bg-white rounded-2xl shadow-2xl p-8 smooth-transition hover-glow ${isTransitioning ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}>
                     {authMode === "signin" && (
                         <div className="animate-slide-in-right">
                             <SignIn

@@ -96,8 +96,8 @@ export default function Header() {
 
                 {/* Auth Button */}
                 <Link href={`/${locale}/auth`}>
-                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift font-medium">
-                    {t("header.authenticate")}
+                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift hover-glow font-medium group">
+                    <span className="group-hover:scale-105 smooth-transition">{t("header.authenticate")}</span>
                   </Button>
                 </Link>
 
@@ -130,8 +130,8 @@ export default function Header() {
 
               {/* Auth Button - Mobile */}
               <Link href={`/${locale}/auth`}>
-                <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm">
-                  {t("header.authenticate")}
+                <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm hover-glow group">
+                  <span className="group-hover:scale-105 smooth-transition">{t("header.authenticate")}</span>
                 </Button>
               </Link>
 

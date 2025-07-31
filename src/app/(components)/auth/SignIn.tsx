@@ -56,10 +56,10 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
     return (
         <div className="w-full max-w-md mx-auto">
             <div className="text-center mb-8 animate-fade-in">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 hover-bounce smooth-transition cursor-default">
                     {t("auth.signin.title")}
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-lg">
                     {t("auth.signin.subtitle")}
                 </p>
             </div>
@@ -81,7 +81,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                             {...field}
                                             type="email"
                                             placeholder={t("auth.signin.emailPlaceholder")}
-                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
+                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition focus-ring hover-glow"
                                         />
                                     </div>
                                 </FormControl>
@@ -105,12 +105,12 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                             {...field}
                                             type={showPassword ? "text" : "password"}
                                             placeholder={t("auth.signin.passwordPlaceholder")}
-                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
+                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition focus-ring hover-glow"
                                         />
                                         <button
                                             type="button"
                                             onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 smooth-transition-fast"
+                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 smooth-transition-fast hover-bounce"
                                         >
                                             {showPassword ? (
                                                 <EyeOff className="h-5 w-5" />
@@ -129,7 +129,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                         <button
                             type="button"
                             onClick={onForgotPassword}
-                            className="text-sm text-[#3C3C8C] hover:text-[#2A2A6B] font-medium"
+                            className="text-sm text-[#3C3C8C] hover:text-[#2A2A6B] font-medium smooth-transition hover-bounce"
                         >
                             {t("auth.signin.forgotPassword")}
                         </button>
@@ -138,7 +138,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                     <Button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white font-semibold py-3 px-4 rounded-lg smooth-transition hover-lift"
+                        className="w-full bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white font-semibold py-3 px-4 rounded-lg smooth-transition hover-lift hover-glow"
                     >
                         {isLoading ? (
                             <div className="flex items-center justify-center">
@@ -158,7 +158,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                     <button
                         type="button"
                         onClick={onToggleMode}
-                        className="text-[#3C3C8C] hover:text-[#2A2A6B] font-semibold"
+                        className="text-[#3C3C8C] hover:text-[#2A2A6B] font-semibold smooth-transition hover-bounce"
                     >
                         {t("auth.signin.createAccount")}
                     </button>

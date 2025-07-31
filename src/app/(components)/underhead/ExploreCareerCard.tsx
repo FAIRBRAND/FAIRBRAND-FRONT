@@ -32,9 +32,9 @@ export default function ExploreCareerCard() {
           </Button>
 
           <Link href={`/${locale}/auth`}>
-            <Button className="bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white border-2 border-[#3C3C8C] px-8 py-6 rounded-full text-lg font-medium smooth-transition hover-lift group shadow-xl">
-              <User className="h-6 w-6 mr-2" />
-              {t("header.authenticate")}
+            <Button className="bg-[#3C3C8C] hover:bg-[#2A2A6B] text-white border-2 border-[#3C3C8C] px-8 py-6 rounded-full text-lg font-medium smooth-transition hover-lift hover-glow group shadow-xl">
+              <User className="h-6 w-6 mr-2 group-hover:scale-110 smooth-transition" />
+              <span className="group-hover:scale-105 smooth-transition">{t("header.authenticate")}</span>
             </Button>
           </Link>
         </div>
