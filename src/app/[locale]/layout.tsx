@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/app/(components)/Footer";
 import Providers from "./providers";
 import Header from "../(components)/Header";
+import { headers } from "next/headers";
 
 /*
 const montserratAlternates = Montserrat_Alternates({
@@ -29,13 +30,16 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || headersList.get("x-invoke-path") || "";
+  const isAuthPage = pathname.includes("/auth");
 
   return (
     <Providers locale={locale}>
       <>
-        <Header />
+        {!isAuthPage && <Header />}
         <main>{children}</main>
-        <Footer />
+        {!isAuthPage && <Footer />}
       </>
     </Providers>
   );
