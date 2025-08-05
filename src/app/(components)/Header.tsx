@@ -1,17 +1,20 @@
 "use client";
 
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useI18n } from "../../../locales/client";
 import LocaleSelect from "./LocaleSelect";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { signOut } from "next-auth/react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const params = useParams();
   const locale = params.locale as string;
+  const { user, isAuthenticated } = useAuth();
 
   const t = useI18n();
 
@@ -21,6 +24,10 @@ export default function Header() {
     { href: "#", label: t("header.privacy") },
     { href: "#", label: t("header.faqs") },
   ];
+
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/" });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -57,12 +64,29 @@ export default function Header() {
                   <Search className="h-5 w-5" />
                 </Button>
 
-                {/* Auth Button */}
-                <Link href={`/${locale}/auth`}>
-                  <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift font-medium">
-                    {t("header.authenticate")}
-                  </Button>
-                </Link>
+                {/* Auth Buttons */}
+                {isAuthenticated ? (
+                  <div className="flex items-center space-x-4">
+                    <Link href={`/${locale}/dashboard`}>
+                      <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift font-medium">
+                        <User className="h-4 w-4 mr-2" />
+                        {user?.firstName || "Dashboard"}
+                      </Button>
+                    </Link>
+                    <Button
+                      onClick={handleSignOut}
+                      className="bg-red-600 text-white hover:bg-red-700 px-4 py-2 rounded-full smooth-transition hover-lift font-medium"
+                    >
+                      <LogOut className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ) : (
+                  <Link href={`/${locale}/auth`}>
+                    <Button className="bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-6 py-2 rounded-full smooth-transition hover-lift font-medium">
+                      {t("header.authenticate")}
+                    </Button>
+                  </Link>
+                )}
 
                 <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full smooth-transition hover-lift font-medium">
                   {t("header.contactUs")}
@@ -92,11 +116,28 @@ export default function Header() {
               </Button>
 
               {/* Auth Button - Mobile */}
-              <Link href={`/${locale}/auth`}>
-                <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm">
-                  {t("header.authenticate")}
-                </Button>
-              </Link>
+              {isAuthenticated ? (
+                <div className="flex items-center space-x-2">
+                  <Link href={`/${locale}/dashboard`}>
+                    <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm">
+                      <User className="h-4 w-4 mr-1" />
+                      {user?.firstName || "Dashboard"}
+                    </Button>
+                  </Link>
+                  <Button
+                    onClick={handleSignOut}
+                    className="hidden sm:flex bg-red-600 text-white hover:bg-red-700 px-3 py-2 rounded-full transition-all duration-200 font-medium text-sm"
+                  >
+                    <LogOut className="h-4 w-4" />
+                  </Button>
+                </div>
+              ) : (
+                <Link href={`/${locale}/auth`}>
+                  <Button className="hidden sm:flex bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm">
+                    {t("header.authenticate")}
+                  </Button>
+                </Link>
+              )}
 
               <Button className="hidden sm:flex bg-black text-white hover:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-full transition-all duration-200 font-medium text-sm sm:text-base">
                 {t("header.contactUs")}
@@ -140,12 +181,30 @@ export default function Header() {
               </nav>
 
               <div className="pt-4 border-t border-gray-200 space-y-4">
-                {/* Auth Button - Mobile Menu */}
-                <Link href={`/${locale}/auth`}>
-                  <Button className="w-full bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] py-3 rounded-full transition-all duration-200 font-medium">
-                    {t("header.authenticate")}
-                  </Button>
-                </Link>
+                {/* Auth Buttons - Mobile Menu */}
+                {isAuthenticated ? (
+                  <>
+                    <Link href={`/${locale}/dashboard`}>
+                      <Button className="w-full bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] py-3 rounded-full transition-all duration-200 font-medium">
+                        <User className="h-4 w-4 mr-2" />
+                        {user?.firstName || "Dashboard"}
+                      </Button>
+                    </Link>
+                    <Button
+                      onClick={handleSignOut}
+                      className="w-full bg-red-600 text-white hover:bg-red-700 py-3 rounded-full transition-all duration-200 font-medium"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Se déconnecter
+                    </Button>
+                  </>
+                ) : (
+                  <Link href={`/${locale}/auth`}>
+                    <Button className="w-full bg-[#3C3C8C] text-white hover:bg-[#2A2A6B] py-3 rounded-full transition-all duration-200 font-medium">
+                      {t("header.authenticate")}
+                    </Button>
+                  </Link>
+                )}
 
                 <Button className="w-full bg-black text-white hover:bg-gray-800 py-3 rounded-full transition-all duration-200 font-medium">
                   {t("header.contactUs")}

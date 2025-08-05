@@ -1,5 +1,7 @@
 import { ReactElement } from "react";
 import { I18nProviderClient } from "../../../locales/client";
+import { SessionProvider } from "next-auth/react";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 export default function Providers({
   locale,
@@ -8,5 +10,11 @@ export default function Providers({
   locale: string;
   children: ReactElement;
 }) {
-  return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>;
+  return (
+    <SessionProvider>
+      <I18nProviderClient locale={locale}>
+        <AuthProvider>{children}</AuthProvider>
+      </I18nProviderClient>
+    </SessionProvider>
+  );
 }
