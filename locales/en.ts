@@ -14,6 +14,9 @@ export default {
     testimonials:'Testimonials',
     privacy:'Privacy Policy',
     blog:'Blog',
+    confidentiality: "Privacy Policy",
+    terms: "Terms and Conditions"
+
   },
   exploreCareerCard:{
     explore:'Achieve Your Global',
