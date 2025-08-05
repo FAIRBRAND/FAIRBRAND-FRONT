@@ -12,7 +12,7 @@ export default function PolitiqueConfidentialite() {
             1. Introduction
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Fair-Brand s'engage à protéger la confidentialité et la sécurité des
+            Fair-Brand s&apos;engage à protéger la confidentialité et la sécurité des
             données personnelles de ses utilisateurs. Cette politique de
             confidentialité explique comment nous collectons, utilisons,
             stockons et protégeons vos informations personnelles.
@@ -62,7 +62,7 @@ export default function PolitiqueConfidentialite() {
             <li>Fournir et améliorer nos services</li>
             <li>Personnaliser votre expérience utilisateur</li>
             <li>Communiquer avec vous (support, newsletters, notifications)</li>
-            <li>Analyser l'utilisation de nos services</li>
+            <li>Analyser l&apos;utilisation de nos services</li>
             <li>Assurer la sécurité et prévenir la fraude</li>
             <li>Respecter nos obligations légales</li>
           </ul>
@@ -107,9 +107,9 @@ export default function PolitiqueConfidentialite() {
               Avec des prestataires de services tiers (hébergement, analytics,
               support)
             </li>
-            <li>En cas d'obligation légale ou de demande des autorités</li>
+            <li>En cas d&apos;obligation légale ou de demande des autorités</li>
             <li>Pour protéger nos droits et assurer la sécurité</li>
-            <li>En cas de fusion, acquisition ou cession d'activité</li>
+            <li>En cas de fusion, acquisition ou cession d&apos;activité</li>
           </ul>
         </section>
 
@@ -128,7 +128,7 @@ export default function PolitiqueConfidentialite() {
             </li>
             <li>
               <strong>Cookies analytiques :</strong> pour comprendre
-              l'utilisation du site
+              l&apos;utilisation du site
             </li>
             <li>
               <strong>Cookies de préférences :</strong> pour mémoriser vos choix
@@ -170,14 +170,14 @@ export default function PolitiqueConfidentialite() {
           </p>
           <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
             <li>
-              <strong>Droit d'accès :</strong> obtenir une copie de vos données
+              <strong>Droit d&apos;accès :</strong> obtenir une copie de vos données
             </li>
             <li>
               <strong>Droit de rectification :</strong> corriger des données
               inexactes
             </li>
             <li>
-              <strong>Droit à l'effacement :</strong> demander la suppression de
+              <strong>Droit à l&apos;effacement :</strong> demander la suppression de
               vos données
             </li>
             <li>
@@ -188,7 +188,7 @@ export default function PolitiqueConfidentialite() {
               dans un format structuré
             </li>
             <li>
-              <strong>Droit d'opposition :</strong> vous opposer au traitement
+              <strong>Droit d&apos;opposition :</strong> vous opposer au traitement
             </li>
             <li>
               <strong>Droit de retrait du consentement :</strong> à tout moment
@@ -213,7 +213,7 @@ export default function PolitiqueConfidentialite() {
             Nous conservons vos données personnelles uniquement pendant la durée
             nécessaire aux finalités pour lesquelles elles ont été collectées,
             ou selon les exigences légales. Les données sont supprimées de
-            manière sécurisée à l'expiration de ces délais.
+            manière sécurisée à l&apos;expiration de ces délais.
           </p>
         </section>
 
@@ -222,10 +222,10 @@ export default function PolitiqueConfidentialite() {
             10. Transferts Internationaux
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Si nous transférons vos données en dehors de l'Union européenne,
-            nous nous assurons qu'un niveau de protection adéquat est maintenu,
+            Si nous transférons vos données en dehors de l&apos;Union européenne,
+            nous nous assurons qu&apos;un niveau de protection adéquat est maintenu,
             notamment par des clauses contractuelles types ou des décisions
-            d'adéquation de la Commission européenne.
+            d&apos;adéquation de la Commission européenne.
           </p>
         </section>
 

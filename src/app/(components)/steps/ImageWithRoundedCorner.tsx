@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface ImageWithRoundedCornerProps {
@@ -7,7 +8,7 @@ interface ImageWithRoundedCornerProps {
 }
 
 const ImageWithRoundedCorner: React.FC<ImageWithRoundedCornerProps> = ({ src, alt, className }) => (
-    <img
+    <Image
         src={src}
         alt={alt}
         className={`rounded-3xl w-full h-full object-cover ${className || ''}`}

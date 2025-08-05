@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LegalPageLayout from "./LegalPageLayout"; 
 
 export default function ConditionsGenerales() {
@@ -12,14 +13,14 @@ export default function ConditionsGenerales() {
             1. Objet
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Les présentes conditions générales d'utilisation (ci-après dénommées
+            Les présentes conditions générales d&apos;utilisation (ci-après dénommées
             « CGU ») ont pour objet de définir les modalités et conditions
-            d'utilisation des services proposés sur le site Fair-Brand (ci-après
+            d&apos;utilisation des services proposés sur le site Fair-Brand (ci-après
             dénommé « le Service »).
           </p>
           <p className="text-gray-700 leading-relaxed">
-            L'utilisation du Service implique l'acceptation pleine et entière
-            des présentes CGU par l'utilisateur.
+            L&apos;utilisation du Service implique l&apos;acceptation pleine et entière
+            des présentes CGU par l&apos;utilisateur.
           </p>
         </section>
 
@@ -33,7 +34,7 @@ export default function ConditionsGenerales() {
               morale utilisant le Service.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              <strong>« Service » :</strong> l'ensemble des fonctionnalités et
+              <strong>« Service » :</strong> l&apos;ensemble des fonctionnalités et
               contenus proposés par Fair-Brand.
             </p>
             <p className="text-gray-700 leading-relaxed">
@@ -49,7 +50,7 @@ export default function ConditionsGenerales() {
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Le Service est accessible gratuitement à tout utilisateur disposant
-            d'un accès à Internet. Tous les frais supportés par l'utilisateur
+            d&apos;un accès à Internet. Tous les frais supportés par l&apos;utilisateur
             pour accéder au Service (matériel informatique, logiciels, connexion
             Internet, etc.) sont à sa charge.
           </p>
@@ -64,7 +65,7 @@ export default function ConditionsGenerales() {
             4. Utilisation du Service
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            L'utilisateur s'engage à utiliser le Service conformément à sa
+            L&apos;utilisateur s&apos;engage à utiliser le Service conformément à sa
             destination et dans le respect des lois et règlements en vigueur.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -72,12 +73,12 @@ export default function ConditionsGenerales() {
           </p>
           <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
             <li>
-              D'utiliser le Service à des fins illégales ou non autorisées
+              D&apos;utiliser le Service à des fins illégales ou non autorisées
             </li>
             <li>De porter atteinte aux droits de propriété intellectuelle</li>
             <li>
               De diffuser des contenus illicites, diffamatoires ou portant
-              atteinte à l'ordre public
+              atteinte à l&apos;ordre public
             </li>
             <li>De perturber le fonctionnement du Service</li>
           </ul>
@@ -88,7 +89,7 @@ export default function ConditionsGenerales() {
             5. Propriété Intellectuelle
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            L'ensemble des éléments composant le Service (textes, images,
+            L&apos;ensemble des éléments composant le Service (textes, images,
             vidéos, logos, etc.) sont protégés par les droits de propriété
             intellectuelle et appartiennent à Fair-Brand ou à ses partenaires.
           </p>
@@ -105,14 +106,14 @@ export default function ConditionsGenerales() {
             6. Responsabilité
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Fair-Brand s'efforce de fournir des informations aussi précises que
+            Fair-Brand s&apos;efforce de fournir des informations aussi précises que
             possible. Toutefois, elle ne pourra être tenue responsable des
             omissions, des inexactitudes et des carences dans la mise à jour.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            L'utilisateur utilise le Service sous sa seule responsabilité.
+            L&apos;utilisateur utilise le Service sous sa seule responsabilité.
             Fair-Brand ne saurait être tenue responsable de tout dommage direct
-            ou indirect résultant de l'utilisation du Service.
+            ou indirect résultant de l&apos;utilisation du Service.
           </p>
         </section>
 
@@ -122,12 +123,12 @@ export default function ConditionsGenerales() {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             Le traitement des données personnelles est régi par notre
-            <a
-              href="/politique-de-confidentialite"
+            <Link
+              href="/confidentiality"
               className="text-blue-600 hover:text-blue-800 underline ml-1"
             >
               Politique de Confidentialité
-            </a>
+            </Link>
             .
           </p>
         </section>
@@ -139,7 +140,7 @@ export default function ConditionsGenerales() {
           <p className="text-gray-700 leading-relaxed">
             Fair-Brand se réserve le droit de modifier les présentes CGU à tout
             moment. Les modifications entrent en vigueur dès leur publication
-            sur le Service. Il appartient à l'utilisateur de consulter
+            sur le Service. Il appartient à l&apos;utilisateur de consulter
             régulièrement les CGU.
           </p>
         </section>
@@ -160,7 +161,7 @@ export default function ConditionsGenerales() {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             Pour toute question relative aux présentes CGU, vous pouvez nous
-            contacter à l'adresse :
+            contacter à l&apos;adresse :
             <a
               href="mailto:contact@fair-brand.com"
               className="text-blue-600 hover:text-blue-800 underline ml-1"
