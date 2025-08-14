@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { signInSchema, type SignInFormData } from "@/lib/schemas/auth";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { InputWithIcon } from "@/components/ui/input-with-icon";
 import {
     Form,
     FormControl,
@@ -82,15 +82,13 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                     {t("auth.signin.email")}
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type="email"
-                                            placeholder={t("auth.signin.emailPlaceholder")}
-                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
-                                        />
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type="email"
+                                        placeholder={t("auth.signin.emailPlaceholder")}
+                                        leftIcon={<Mail className="h-5 w-5" />}
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -106,26 +104,22 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                                     {t("auth.signin.password")}
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type={showPassword ? "text" : "password"}
-                                            placeholder={t("auth.signin.passwordPlaceholder")}
-                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 smooth-transition-fast"
-                                        >
-                                            {showPassword ? (
-                                                <EyeOff className="h-5 w-5" />
-                                            ) : (
-                                                <Eye className="h-5 w-5" />
-                                            )}
-                                        </button>
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder={t("auth.signin.passwordPlaceholder")}
+                                        leftIcon={<Lock className="h-5 w-5" />}
+                                        rightAdornment={
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="text-gray-400 hover:text-gray-600 smooth-transition-fast"
+                                            >
+                                                {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                                            </button>
+                                        }
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C] smooth-transition"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -180,7 +174,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path
                         fill="currentColor"
-                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77 h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                     />
                     <path
                         fill="currentColor"

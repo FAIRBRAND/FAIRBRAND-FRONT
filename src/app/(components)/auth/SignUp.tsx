@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import { signUpSchema, type SignUpFormData } from "@/lib/schemas/auth";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { InputWithIcon } from "@/components/ui/input-with-icon";
 import {
     Form,
     FormControl,
@@ -77,15 +77,13 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
                                         Prénom
                                     </FormLabel>
                                     <FormControl>
-                                        <div className="relative">
-                                            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                            <Input
-                                                {...field}
-                                                type="text"
-                                                placeholder="Prénom"
-                                                className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                            />
-                                        </div>
+                                        <InputWithIcon
+                                            {...field}
+                                            type="text"
+                                            placeholder="Prénom"
+                                            leftIcon={<User className="h-5 w-5" />}
+                                            className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -101,15 +99,13 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
                                         Nom
                                     </FormLabel>
                                     <FormControl>
-                                        <div className="relative">
-                                            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                            <Input
-                                                {...field}
-                                                type="text"
-                                                placeholder="Nom"
-                                                className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                            />
-                                        </div>
+                                        <InputWithIcon
+                                            {...field}
+                                            type="text"
+                                            placeholder="Nom"
+                                            leftIcon={<User className="h-5 w-5" />}
+                                            className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -126,15 +122,13 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
                                     Email
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type="email"
-                                            placeholder="votre@email.com"
-                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                        />
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type="email"
+                                        placeholder="votre@email.com"
+                                        leftIcon={<Mail className="h-5 w-5" />}
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -150,26 +144,22 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
                                     Mot de passe
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type={showPassword ? "text" : "password"}
-                                            placeholder="Votre mot de passe"
-                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                                        >
-                                            {showPassword ? (
-                                                <EyeOff className="h-5 w-5" />
-                                            ) : (
-                                                <Eye className="h-5 w-5" />
-                                            )}
-                                        </button>
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="Votre mot de passe"
+                                        leftIcon={<Lock className="h-5 w-5" />}
+                                        rightAdornment={
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="text-gray-400 hover:text-gray-600"
+                                            >
+                                                {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                                            </button>
+                                        }
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -185,26 +175,22 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
                                     Confirmer le mot de passe
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type={showConfirmPassword ? "text" : "password"}
-                                            placeholder="Confirmez votre mot de passe"
-                                            className="pl-10 pr-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                                        >
-                                            {showConfirmPassword ? (
-                                                <EyeOff className="h-5 w-5" />
-                                            ) : (
-                                                <Eye className="h-5 w-5" />
-                                            )}
-                                        </button>
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        placeholder="Confirmez votre mot de passe"
+                                        leftIcon={<Lock className="h-5 w-5" />}
+                                        rightAdornment={
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                                className="text-gray-400 hover:text-gray-600"
+                                            >
+                                                {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                                            </button>
+                                        }
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

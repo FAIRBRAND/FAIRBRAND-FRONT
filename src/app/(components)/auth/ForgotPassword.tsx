@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, ArrowLeft } from "lucide-react";
 import { forgotPasswordSchema, type ForgotPasswordFormData } from "@/lib/schemas/auth";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { InputWithIcon } from "@/components/ui/input-with-icon";
 import {
     Form,
     FormControl,
@@ -104,15 +104,13 @@ export default function ForgotPassword({ onBackToSignIn }: ForgotPasswordProps) 
                                     Email
                                 </FormLabel>
                                 <FormControl>
-                                    <div className="relative">
-                                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                        <Input
-                                            {...field}
-                                            type="email"
-                                            placeholder="votre@email.com"
-                                            className="pl-10 bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
-                                        />
-                                    </div>
+                                    <InputWithIcon
+                                        {...field}
+                                        type="email"
+                                        placeholder="votre@email.com"
+                                        leftIcon={<Mail className="h-5 w-5" />}
+                                        className="bg-white border-gray-300 focus:border-[#3C3C8C] focus:ring-[#3C3C8C]"
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
