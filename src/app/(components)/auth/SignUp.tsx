@@ -15,7 +15,6 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { useSpringBootAuth } from "@/hooks/useSpringBootAuth";
 
 interface SignUpProps {
     onToggleMode: () => void;
@@ -24,7 +23,7 @@ interface SignUpProps {
 export default function SignUp({ onToggleMode }: SignUpProps) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const { register, isLoading, error, clearError } = useSpringBootAuth();
+    const [isLoading, setIsLoading] = useState(false);
 
     const form = useForm<SignUpFormData>({
         resolver: zodResolver(signUpSchema),
@@ -38,16 +37,20 @@ export default function SignUp({ onToggleMode }: SignUpProps) {
     });
 
     const onSubmit = async (data: SignUpFormData) => {
+        setIsLoading(true);
         try {
-            clearError();
-            await register({
-                firstName: data.firstName,
-                lastName: data.lastName,
-                email: data.email,
-                password: data.password,
-            });
+            // TODO: Implémenter la logique d'inscription
+            console.log("Sign up data:", data);
+
+            // Simuler un délai d'inscription
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // TODO: Rediriger vers le dashboard après inscription réussie
         } catch (error) {
             console.error("Erreur d'inscription:", error);
+            // TODO: Afficher un message d'erreur
+        } finally {
+            setIsLoading(false);
         }
     };
 

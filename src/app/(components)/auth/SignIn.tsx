@@ -16,7 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { useI18n } from "../../../../locales/client";
-import { useSpringBootAuth } from "@/hooks/useSpringBootAuth";
+import { useAuthForm } from "@/hooks/useAuthForm";
 
 interface SignInProps {
     onToggleMode: () => void;
@@ -26,7 +26,14 @@ interface SignInProps {
 export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) {
     const t = useI18n();
     const [showPassword, setShowPassword] = useState(false);
-    const { login, isLoading, error, clearError } = useSpringBootAuth();
+    const { signInWithCredentials, signInWithGoogle, isLoading, error, clearError } = useAuthForm({
+        onSuccess: () => {
+            // Redirection gérée dans le hook
+        },
+        onError: (error) => {
+            console.error("Erreur de connexion:", error);
+        },
+    });
 
     const form = useForm<SignInFormData>({
         resolver: zodResolver(signInSchema),
@@ -38,13 +45,12 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
 
     const onSubmit = async (data: SignInFormData) => {
         clearError();
-        await login({ email: data.email, password: data.password });
+        await signInWithCredentials(data.email, data.password);
     };
 
     const handleGoogleSignIn = () => {
         clearError();
-        // TODO: Implémenter la connexion Google avec SpringBoot
-        console.log("Google sign-in not yet implemented with SpringBoot");
+        signInWithGoogle();
     };
 
     return (
@@ -194,7 +200,7 @@ export default function SignIn({ onToggleMode, onForgotPassword }: SignInProps) 
 
             <div className="mt-6 text-center">
                 <p className="text-gray-600">
-                    {t("auth.signin.noAccount")}{" "}
+                    {t("auth.signin.noAccount")} {" "}
                     <button
                         type="button"
                         onClick={onToggleMode}

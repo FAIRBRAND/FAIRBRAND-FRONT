@@ -6,27 +6,28 @@ import { useEffect } from "react";
 import { AuthLoading } from "./AuthLoading";
 
 interface ProtectedRouteProps {
-    children: React.ReactNode;
-    fallback?: React.ReactNode;
+	children: React.ReactNode;
+	fallback?: React.ReactNode;
+	redirectTo?: string;
 }
 
-export const ProtectedRoute = ({ children, fallback }: ProtectedRouteProps) => {
-    const { isAuthenticated, isLoading } = useAuth();
-    const router = useRouter();
+export const ProtectedRoute = ({ children, fallback, redirectTo = "/auth" }: ProtectedRouteProps) => {
+	const { isAuthenticated, isLoading } = useAuth();
+	const router = useRouter();
 
-    useEffect(() => {
-        if (!isLoading && !isAuthenticated) {
-            router.push("/auth");
-        }
-    }, [isAuthenticated, isLoading, router]);
+	useEffect(() => {
+		if (!isLoading && !isAuthenticated) {
+			router.push(redirectTo);
+		}
+	}, [isAuthenticated, isLoading, redirectTo, router]);
 
-    if (isLoading) {
-        return fallback || <AuthLoading />;
-    }
+	if (isLoading) {
+		return fallback || <AuthLoading />;
+	}
 
-    if (!isAuthenticated) {
-        return null;
-    }
+	if (!isAuthenticated) {
+		return null;
+	}
 
-    return <>{children}</>;
+	return <>{children}</>;
 }; 
