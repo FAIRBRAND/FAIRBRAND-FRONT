@@ -2,19 +2,13 @@
 
 ## Configuration initiale
 
-1. **Variables d'environnement** : Créez un fichier `.env.local` avec :
-   ```env
-   DATABASE_URL="postgresql://username:password@localhost:5432/fairbrand_db"
-   NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="your-secret-key-here"
-   ```
-
-2. **Base de données** :
-   ```bash
-   npm run db:generate
-   npm run db:migrate
-   npm run db:init
-   ```
+1. Variables d'environnement : Créez un fichier `.env.local` (voir `docs/auth/setup.md`)
+2. Base de données :
+```bash
+npm run db:generate
+npm run db:migrate
+npm run db:init
+```
 
 ## Tests manuels
 
@@ -75,21 +69,21 @@ describe('Authentication', () => {
 
 ### Erreurs courantes
 
-1. **"Prisma Client not found"**
-   ```bash
-   npm run db:generate
-   ```
+1. "Prisma Client not found"
+```bash
+npm run db:generate
+```
 
-2. **"Database connection failed"**
-   - Vérifier l'URL de la base de données dans `.env.local`
-   - Vérifier que PostgreSQL est démarré
+2. "Database connection failed"
+- Vérifier l'URL de la base de données dans `.env.local`
+- Vérifier que PostgreSQL est démarré
 
-3. **"NextAuth secret not set"**
-   - Ajouter `NEXTAUTH_SECRET` dans `.env.local`
+3. "NextAuth secret not set"
+- Ajouter `NEXTAUTH_SECRET` dans `.env.local`
 
-4. **"Google OAuth error"**
-   - Vérifier les identifiants Google dans `.env.local`
-   - Vérifier les URIs de redirection dans Google Cloud Console
+4. "Google OAuth error"
+- Vérifier les identifiants Google dans `.env.local`
+- Vérifier les URIs de redirection dans Google Cloud Console
 
 ### Logs utiles
 
@@ -99,4 +93,4 @@ DEBUG=prisma:* npm run dev
 
 # Voir les logs NextAuth
 DEBUG=next-auth:* npm run dev
-``` 
+```
