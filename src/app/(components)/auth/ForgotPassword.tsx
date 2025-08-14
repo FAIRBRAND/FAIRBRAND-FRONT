@@ -15,14 +15,15 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
+import { useSpringBootAuth } from "@/hooks/useSpringBootAuth";
 
 interface ForgotPasswordProps {
     onBackToSignIn: () => void;
 }
 
 export default function ForgotPassword({ onBackToSignIn }: ForgotPasswordProps) {
-    const [isLoading, setIsLoading] = useState(false);
     const [isEmailSent, setIsEmailSent] = useState(false);
+    const { forgotPassword, isLoading, error, clearError } = useSpringBootAuth();
 
     const form = useForm<ForgotPasswordFormData>({
         resolver: zodResolver(forgotPasswordSchema),
@@ -32,20 +33,12 @@ export default function ForgotPassword({ onBackToSignIn }: ForgotPasswordProps) 
     });
 
     const onSubmit = async (data: ForgotPasswordFormData) => {
-        setIsLoading(true);
         try {
-            // TODO: Implémenter la logique d'envoi d'email de réinitialisation
-            console.log("Forgot password data:", data);
-
-            // Simuler un délai d'envoi d'email
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
+            clearError();
+            await forgotPassword(data.email);
             setIsEmailSent(true);
         } catch (error) {
             console.error("Erreur d'envoi d'email:", error);
-            // TODO: Afficher un message d'erreur
-        } finally {
-            setIsLoading(false);
         }
     };
 
