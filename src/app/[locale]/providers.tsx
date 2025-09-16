@@ -1,12 +1,16 @@
-import { ReactElement } from "react";
-import { I18nProviderClient } from "../../../locales/client";
+// app/providers.tsx
+'use client'
 
-export default function Providers({
-  locale,
-  children,
-}: {
-  locale: string;
-  children: ReactElement;
-}) {
-  return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>;
+import { Provider } from 'react-redux'
+import { store } from "@/store"
+import { Toaster } from 'react-hot-toast'
+import { ReactNode } from 'react'
+
+export default function Providers({ children }: { children: ReactNode }) {
+  return (
+    <Provider store={store}>
+      <Toaster position="top-right" />
+      {children}
+    </Provider>
+  )
 }
