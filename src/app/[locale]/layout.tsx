@@ -1,42 +1,29 @@
-import "./globals.css";
-//import { Montserrat_Alternates, Open_Sans } from "next/font/google";
-import Footer from "@/app/(components)/Footer";
-import Providers from "./providers";
-import Header from "../(components)/Header";
-
-/*
-const montserratAlternates = Montserrat_Alternates({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-title",
-  weight: ["400", "700"],
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-body",
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-});
-*/
-
-export default async function RootLayout({
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { notFound } from 'next/navigation'
+import { routing } from '@/i18n/routing'
+import './globals.css'
+import Providers from './providers'
+export default async function LocaleLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
 }) {
-  const { locale } = await params;
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
 
   return (
-    <Providers locale={locale}>
-      <>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </>
-    </Providers>
-  );
+    <html lang={locale} suppressHydrationWarning>
+      <body>
+        <Providers>
+          <NextIntlClientProvider>
+              {children}
+          </NextIntlClientProvider>
+        </Providers>
+      </body>
+    </html>
+  )
 }
