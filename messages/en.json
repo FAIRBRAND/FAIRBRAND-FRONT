@@ -87,5 +87,103 @@
         "description": "Enjoy the new career opportunities and confidence you gain"
       }
     ]
+  },
+  "auth": {
+    "signin": {
+      "title": "Welcome Back!",
+      "subtitle": "Sign in to your Fairbrand account",
+      "email": "Email address",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign In",
+      "or": "or",
+      "googleSignin": "Continue with Google"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Join Fairbrand and access our premium services",
+      "firstname": "First name *",
+      "lastname": "Last name *",
+      "email": "Email address *",
+      "password": "Password *",
+      "confirmPassword": "Confirm password *",
+      "acceptTerms": "I accept the",
+      "termsOfService": "terms of service",
+      "and": "and",
+      "privacyPolicy": "privacy policy",
+      "next": "Next",
+      "back": "Back",
+      "createAccount": "Create Account",
+      "or": "or",
+      "googleSignup": "Continue with Google"
+    },
+    "tabs": {
+      "signin": "Sign In",
+      "signup": "Sign Up"
+    },
+    "verificationOtp":{
+      "title":"OTP Verification",
+      "verification":"Verifying...",
+      "confirm":"Confirm"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "header": {
+        "title": "New Password",
+        "subtitle": "Create a secure password"
+      },
+      "fields": {
+        "newPassword": {
+          "label": "New Password",
+          "placeholder": "Enter your new password"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Confirm your new password"
+        }
+      },
+      "strength": {
+        "title": "Password Strength",
+        "weak": "Weak",
+        "medium": "Medium",
+        "good": "Good",
+        "excellent": "Excellent"
+      },
+      "criteria": {
+        "title": "Your password must contain:",
+        "minLength": "At least 8 characters",
+        "uppercase": "One uppercase letter",
+        "lowercase": "One lowercase letter",
+        "number": "One number",
+        "special": "One special character"
+      },
+      "validation": {
+        "passwordsMatch": "Passwords match",
+        "passwordsDontMatch": "Passwords don't match"
+      },
+      "button": {
+        "submit": "Reset Password",
+        "loading": "Resetting..."
+      },
+      "footer": {
+        "text": "By resetting your password, you can",
+        "link": "recover your account"
+      }
+    }
+  },
+  "toast": {
+    "successLogin": "Login successful!",
+    "errorLogin": "Check your email or password!",
+    "successSignup": "Signup successful!",
+    "errorSignup": "Error during signup, please try again!",
+    "errorVerifyOtp": "Please check your email for the OTP code.",
+    "succesVerifyOtp": "An OTP code has been sent to your email",
+    "errorCodeOtp": "Invalid OTP code",
+    "successLoginGoogle": "Login successful with Google!",
+    "errorLoginGoogle": "Error during login with Google!",
+    "successSignupGoogle": "Signup successful with Google!",
+    "errorSignupGoogle": "Error during signup with Google!",
+    "confirmPassword": "Passwords do not match.",
+    "successLogout": "Logout successful!"
   }
 }
