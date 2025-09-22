@@ -1,9 +1,7 @@
 "use client";
 
-import { useSelector } from "react-redux";
 import { Bell, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { RootState } from "@/store";
 // import { useAuth } from "@/features/auth/hooks/useAuth";
 
 export function AdminHeader() {

@@ -76,7 +76,7 @@ export default function AdminDashboard() {
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <p className="text-sm text-gray-600">
-                  Formation "React Avancé" créée
+                  Formation &quot;React Avancé&quot; créée
                 </p>
                 <span className="text-xs text-gray-400 ml-auto">4h</span>
               </div>

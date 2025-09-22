@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, UserPlus, MoreHorizontal, Edit, Trash2 } from "lucide-react";
+import { Search, UserPlus, Edit, Trash2 } from "lucide-react";
 
 interface User {
   id: string;

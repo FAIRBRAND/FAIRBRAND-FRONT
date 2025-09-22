@@ -79,7 +79,7 @@ export default function SettingsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Paramètres d'email</CardTitle>
+            <CardTitle>Paramètres d&apos;email</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
