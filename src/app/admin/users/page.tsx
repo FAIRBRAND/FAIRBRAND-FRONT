@@ -109,7 +109,7 @@ export default function UsersPage() {
                     Formations terminées
                   </th>
                   <th className="text-left py-3 px-4 font-medium text-gray-700">
-                    Date d'inscription
+                    Date d&apos;inscription
                   </th>
                   <th className="text-left py-3 px-4 font-medium text-gray-700">
                     Actions
