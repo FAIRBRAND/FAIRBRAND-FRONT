@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, BookOpen, Award, CreditCard, TrendingUp } from "lucide-react";
+import { Users, BookOpen, Award, CreditCard } from "lucide-react";
 
 export default function AdminDashboard() {
   const stats = [

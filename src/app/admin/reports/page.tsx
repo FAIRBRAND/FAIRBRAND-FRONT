@@ -80,7 +80,7 @@ export default function ReportsPage() {
           </CardHeader>
           <CardContent>
             <div className="h-64 flex items-center justify-center text-gray-500">
-              Graphique d'évolution des inscriptions
+              Graphique d&apos;évolution des inscriptions
             </div>
           </CardContent>
         </Card>

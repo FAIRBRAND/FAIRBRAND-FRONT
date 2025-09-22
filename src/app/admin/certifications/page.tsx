@@ -136,7 +136,7 @@ export default function CertificationsPage() {
                     Formation
                   </th>
                   <th className="text-left py-3 px-4 font-medium text-gray-700">
-                    Date d'émission
+                    Date d&apos;émission
                   </th>
                   <th className="text-left py-3 px-4 font-medium text-gray-700">
                     Statut

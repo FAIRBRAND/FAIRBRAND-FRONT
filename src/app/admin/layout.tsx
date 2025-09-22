@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { AdminSidebar } from "@/features/admin/components/AdminSidebar";
 import { AdminHeader } from "@/features/admin/components/AdminHeader";
-import { AdminGuard } from "@/features/admin/components/AdminGuard";
 import "../[locale]/globals.css";
 interface AdminLayoutProps {
   children: ReactNode;

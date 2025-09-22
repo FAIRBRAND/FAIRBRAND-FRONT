@@ -10,7 +10,6 @@ import {
   CreditCard,
   BarChart3,
   Settings,
-  FileText,
   TrendingUp,
 } from "lucide-react";
 
