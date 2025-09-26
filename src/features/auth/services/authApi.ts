@@ -3,6 +3,7 @@ import { baseQuery } from '@/shared/api/baseQuery'
 import {
   AuthResponse,
   LoginRequest,
+  SignupOtpRequest,
   SignupRequest,
 } from '../types/auth'
 import { API_ENDPOINTS } from '@/shared/constants/apiEndpoint'
@@ -17,9 +18,16 @@ export const authApi = createApi({
         body: data,
       }),
     }),
-    signupOtp: builder.mutation<AuthResponse, SignupRequest>({
+    signupOtp: builder.mutation<void, SignupRequest>({
       query: (data) => ({
         url: API_ENDPOINTS.AUTH.SIGNUP,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+      verifyOtp: builder.mutation<AuthResponse, SignupOtpRequest>({
+      query: (data) => ({
+        url: API_ENDPOINTS.AUTH.VERIFY_OTP,
         method: 'POST',
         body: data,
       }),
@@ -37,4 +45,5 @@ export const authApi = createApi({
 export const {
   useSignupMutation,
   useLoginMutation,
+  useVerifyOtpMutation,
 } = authApi

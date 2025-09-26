@@ -91,7 +91,7 @@
   "auth": {
     "signin": {
       "title": "Welcome Back!",
-      "subtitle": "Sign in to your Orbixup account",
+      "subtitle": "Sign in to your Fairbrand account",
       "email": "Email address",
       "password": "Password",
       "forgotPassword": "Forgot password?",
@@ -101,7 +101,7 @@
     },
     "signup": {
       "title": "Create Account",
-      "subtitle": "Join Orbixup and access our premium services",
+      "subtitle": "Join Fairbrand and access our premium services",
       "firstname": "First name *",
       "lastname": "Last name *",
       "email": "Email address *",
@@ -120,6 +120,11 @@
     "tabs": {
       "signin": "Sign In",
       "signup": "Sign Up"
+    },
+    "verificationOtp":{
+      "title":"OTP Verification",
+      "verification":"Verifying...",
+      "confirm":"Confirm"
     },
     "resetPassword": {
       "title": "Reset Password",
@@ -165,5 +170,20 @@
         "link": "recover your account"
       }
     }
+  },
+  "toast": {
+    "successLogin": "Login successful!",
+    "errorLogin": "Check your email or password!",
+    "successSignup": "Signup successful!",
+    "errorSignup": "Error during signup, please try again!",
+    "errorVerifyOtp": "Please check your email for the OTP code.",
+    "succesVerifyOtp": "An OTP code has been sent to your email",
+    "errorCodeOtp": "Invalid OTP code",
+    "successLoginGoogle": "Login successful with Google!",
+    "errorLoginGoogle": "Error during login with Google!",
+    "successSignupGoogle": "Signup successful with Google!",
+    "errorSignupGoogle": "Error during signup with Google!",
+    "confirmPassword": "Passwords do not match.",
+    "successLogout": "Logout successful!"
   }
 }
