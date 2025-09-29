@@ -91,9 +91,9 @@
   "auth": {
     "signin": {
       "title": "Bon retour !",
-      "subtitle": "Connectez-vous à votre compte Orbixup",
-      "firstname": "Prénom(s)",
-      "lastname": "Nom de famille",
+      "subtitle": "Connectez-vous à votre compte Fairbrand",
+      "email": "Votre email",
+      "password": "Mot de passe",
       "forgotPassword": "Mot de passe oublié ?",
       "submit": "Se connecter",
       "or": "ou",
@@ -101,10 +101,9 @@
     },
     "signup": {
       "title": "Créer un compte",
-      "subtitle": "Rejoignez Orbixup et accédez à nos services premium",
+      "subtitle": "Rejoignez Fairbrand et accédez à nos services premium",
       "firstname": "Prénom(s) *",
       "lastname": "Nom de famille *",
-      "fullName": "Nom complet *",
       "username": "Nom d'utilisateur *",
       "email": "Adresse e-mail *",
       "password": "Mot de passe *",
@@ -122,6 +121,11 @@
     "tabs": {
       "signin": "Se connecter",
       "signup": "S'inscrire"
+    },
+    "verificationOtp":{
+      "title":"Vérification OTP",
+      "verification":"Vérification...",
+      "confirm":"Confirmer"
     },
     "resetPassword": {
       "title": "Réinitialiser le mot de passe",
@@ -167,5 +171,22 @@
         "link": "récupérer votre compte"
       }
     }
+  },
+  "toast": {
+    "successLogin": "Connexion réussie !",
+    "errorLogin": "Vérifier votre email ou mot de passe !",
+    "successSignup": "Inscription réussie !",
+    "errorSignup": "Erreur lors de l'inscription veuillez réessayer !",
+    "errorVerifyOtp": "Veuillez vérifier votre email pour le code OTP.",
+    "succesVerifyOtp":"Un code OTP a été envoyé à votre email",
+    "errorCodeOtp":"Code OTP invalide",
+    "successLoginGoogle": "Connexion réussie avec Google !",
+    "errorLoginGoogle": "Erreur lors de la connexion avec Google !",
+    "successSignupGoogle": "Inscription réussie avec Google !",
+    "errorSignupGoogle": "Erreur lors de l'inscription avec Google !",
+    "confirmPassword": "Les mots de passe ne correspondent pas.",
+    "successLogout": "Déconnexion réussie !",
+    "successChoice": "Choix Enregistré !",
+    "errorChoice": "Erreur: validation !"
   }
 }

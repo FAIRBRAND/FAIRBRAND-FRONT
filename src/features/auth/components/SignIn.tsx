@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
@@ -10,10 +10,8 @@ import { useTranslations } from "next-intl";
 import { useDispatch } from "react-redux";
 import { setToken } from "@/store/slice/slice";
 import toast from "react-hot-toast";
-import { redirectAccordingToRole } from "@/i18n/routes";
-import { useRouter } from "next/navigation";
-import { Dialog, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
-import { DialogContent, DialogHeader } from "@/components/ui/dialog";
+//import { redirectAccordingToRole } from "@/i18n/routes";
+//import { useRouter } from "next/navigation";
 import { useLoginForm } from "../hooks/useLogin";
 import { FormProvider } from "react-hook-form";
 import { LoginFormData } from "../schema/loginSchema";
@@ -21,7 +19,7 @@ import { LoginFormData } from "../schema/loginSchema";
 const SignIn = () => {
   const t = useTranslations("auth.signin");
   const toastMessage = useTranslations("toast");
-  const router = useRouter();
+  //const router = useRouter();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const { methods, login, loginState } = useLoginForm();
@@ -32,7 +30,7 @@ const SignIn = () => {
     try {
       const res = await login(data).unwrap();
       dispatch(setToken(res.token));
-      redirectAccordingToRole(res.token, router);
+      //redirectAccordingToRole(res.token, router);
       if (authMethod !== "google") {
         toast.success(toastMessage("successLogin"));
       }
@@ -42,14 +40,17 @@ const SignIn = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+    <div className="w-full max-w-md mx-auto mt-28 p-8 rounded-2xl border border-border/40 shadow-lg shadow-muted/20 bg-gradient-to-b from-background to-muted/30 backdrop-blur-sm">
+      <div className="flex justify-center mb-3">
+        <div className="p-3 rounded-full bg-primary/10 text-primary border border-primary/20 shadow-md shadow-primary/20">
+          <User className="w-6 h-6" />
+        </div>
+      </div>
+      <div className="text-center mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
           {t("title")}
         </h2>
-        <p className="text-muted-foreground text-sm md:text-base">
-          {t("subtitle")}
-        </p>
+        <p className="text-muted-foreground text-sm">{t("subtitle")}</p>
       </div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-6">
@@ -68,7 +69,7 @@ const SignIn = () => {
                 type="email"
                 placeholder="votre@email.com"
                 {...methods.register("email")}
-                className="pl-10 h-12 bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20"
+                className="pl-10 h-12 rounded-xl bg-background/70 border border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition shadow-sm"
                 required
               />
             </div>
@@ -89,7 +90,7 @@ const SignIn = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
                 {...methods.register("password")}
-                className="pl-10 pr-10 h-12 bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20"
+                className="pl-10 h-12 rounded-xl bg-background/70 border border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition shadow-sm"
                 required
               />
               <button
@@ -109,11 +110,11 @@ const SignIn = () => {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full h-12 btn-premium text-base font-semibold"
+            className="w-full mt-5 mb-5 h-12 text-white btn-premium text-base font-semibold"
             disabled={loginState.isLoading}
           >
             {loginState.isLoading && (
-              <span className="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin mr-2" />
+              <span className="w-5 h-5  border-2 border-t-transparent border-white rounded-full animate-spin mr-2" />
             )}
             {t("submit")}
           </Button>
@@ -122,34 +123,8 @@ const SignIn = () => {
           {loginState.error && (
             <p className="text-red-500 text-sm">{toastMessage("errorLogin")}</p>
           )}
-          {/* Divider */}
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border/50"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-background text-muted-foreground">
-                {t("or")}
-              </span>
-            </div>
-          </div>
         </form>
       </FormProvider>
-      {/* Forgot Password */}
-      <Dialog>
-        <DialogTrigger asChild>
-          <button className="text-primary text-sm hover:underline">
-            {t("forgotPassword")}
-          </button>
-        </DialogTrigger>
-
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Réinitialiser le mot de passe</DialogTitle>
-          </DialogHeader>
-          {/**<ForgotPassword />*/}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
