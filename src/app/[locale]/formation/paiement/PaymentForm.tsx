@@ -1,59 +1,46 @@
 "use client";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
+import { PaymentHeader } from "@/features/payment/components/PaymentHeader";
+import { PaymentSummary } from "@/features/payment/components/PaymentSummary";
+import { PaymentFormFields } from "@/features/payment/components/PaymentFormFields";
 
 const PaymentForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
-    setError(null);
+  const handlePaymentSuccess = (paymentMethod: any) => {
+    console.log("Paiement réussi ! Objet de paiement :", paymentMethod);
+    // TODO: Envoyer paymentMethod.id au backend
+    alert("Paiement réussi ! Vérifiez la console pour les détails.");
+  };
 
-    if (!stripe || !elements) {
-      setLoading(false);
-      return;
-    }
-
-    const cardElement = elements.getElement(CardElement);
-
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement!,
-    });
-
-    if (error) {
-      setError(error.message || "Erreur de paiement");
-      setLoading(false);
-    } else {
-      // TODO: Envoyer paymentMethod.id au backend
-      setLoading(false);
-    }
+  const handlePaymentError = (errorMessage: string) => {
+    setError(errorMessage);
   };
 
   return (
-    <Card className="max-w-md mx-auto p-6 space-y-4">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <h2 className="text-xl font-bold">Titre de la formation</h2>
-        <p className="text-muted-foreground">Prix : 99,00 €</p>
-        <div>
-          <Label htmlFor="card">Informations carte bancaire</Label>
-          <div className="border rounded p-2 mt-1">
-            <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
+    <div className="min-h-screen bg-off-white py-12">
+      <div className="max-w-2xl mx-auto px-6">
+        <PaymentHeader title="Paiement de la formation" />
+
+        <PaymentSummary
+          title="Titre de la formation"
+          description="Formation complète en ligne"
+          price="99,00 €"
+        />
+
+        <PaymentFormFields
+          onPaymentSuccess={handlePaymentSuccess}
+          onPaymentError={handlePaymentError}
+          price="99,00 €"
+        />
+
+        {error && (
+          <div className="mt-4 text-red-600 text-sm bg-red-50 p-4 rounded-xl border border-red-200">
+            {error}
           </div>
-        </div>
-        {error && <div className="text-red-500 text-sm">{error}</div>}
-        <Button type="submit" disabled={!stripe || loading} className="w-full">
-          {loading ? "Paiement en cours..." : "Payer"}
-        </Button>
-      </form>
-    </Card>
+        )}
+      </div>
+    </div>
   );
 };
 
